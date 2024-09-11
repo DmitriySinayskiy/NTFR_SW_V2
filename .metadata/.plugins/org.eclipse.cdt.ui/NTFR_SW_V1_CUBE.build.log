@@ -1,0 +1,7 @@
+15:30:42 **** Incremental Build of configuration Debug for project NTFR_SW_V1_CUBE ****
+make -j16 all 
+make: *** No rule to make target 'C:/Users/Morf/Desktop/work/CUBEIDEWORKSPACE/NTFR_SW_V1/CubeMx/ST7735_src/fonts.c', needed by 'ST7735_src/fonts.o'.  Stop.
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+
+15:30:43 Build Failed. 1 errors, 0 warnings. (took 260ms)
+

@@ -1,0 +1,16 @@
+/*
+ * measuring.h
+ *
+ *  Created on: Sep 4, 2024
+ *      Author: user
+ */
+
+#ifndef MEASURING_H_
+#define MEASURING_H_
+
+#include "allmyheaders.h"
+
+void led_off();
+void led_accumulation();
+
+#endif /* MEASURING_H_ */

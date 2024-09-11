@@ -1,0 +1,8 @@
+../mysource/measuring.c:15:6:led_off	1
+../mysource/measuring.c:34:6:led_all_on	1
+../mysource/measuring.c:56:6:led_measuring_results_reflection	4
+../mysource/measuring.c:95:6:led_accumulation	19
+../mysource/measuring.c:239:5:conduct_acidity_loading_bar_calculation	7
+../mysource/measuring.c:275:5:display_loading_status	5
+../mysource/measuring.c:299:6:display_measuring_product	1
+../mysource/measuring.c:303:6:display_measuring_text	5

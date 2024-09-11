@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Graphics_downloader/CubeMx.ioc&apos; to &apos;Graphics_downloader.ioc&apos;" description="Rename resource &apos;CubeMx.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="CubeMx.ioc" name="Graphics_downloader.ioc" stamp="1724755942346" updateReferences="true"/>
+</session>

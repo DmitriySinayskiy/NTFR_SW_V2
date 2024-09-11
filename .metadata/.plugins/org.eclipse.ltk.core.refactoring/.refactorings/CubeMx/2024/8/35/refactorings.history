@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;CubeMx/mysource/measuring&apos; to &apos;measuring.c&apos;" description="Rename resource &apos;measuring&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="mysource/measuring" name="measuring.c" stamp="1724764880163" updateReferences="true"/>
+</session>

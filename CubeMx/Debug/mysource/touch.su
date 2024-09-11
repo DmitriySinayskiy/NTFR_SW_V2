@@ -1,0 +1,6 @@
+../mysource/touch.c:5:6:MPR_Init	4	static
+../mysource/touch.c:13:6:MPR121_get_touch_status	4	static
+../mysource/touch.c:18:6:MPR121_get_data	4	static
+../mysource/touch.c:22:6:MPR121_get_filtered_data	4	static
+../mysource/touch.c:26:6:MPR121_setregister	32	static
+../mysource/touch.c:30:5:MPR121_readregister	32	static

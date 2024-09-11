@@ -1,0 +1,40 @@
+17:41:14 **** Incremental Build of configuration Debug for project CubeMx ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'SPI_Flash_to_LCD':
+../Core/Src/main.c:204:26: warning: passing argument 1 of 'W25qxx_ReadBlock' from incompatible pointer type [-Wincompatible-pointer-types]
+  204 |         W25qxx_ReadBlock(img_buffer, block, offset, img_byte_amount);
+      |                          ^~~~~~~~~~
+      |                          |
+      |                          uint16_t * {aka short unsigned int *}
+In file included from C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/allmyheaders.h:18,
+                 from ../Core/Src/main.c:25:
+C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx/w25qxx.h:105:40: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  105 |         void W25qxx_ReadBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_BlockSize);
+      |                               ~~~~~~~~~^~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:450:58: warning: passing argument 1 of 'display_measuring_text' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  450 |                   display_measuring_text(product_array[0].name , product_array[0].conductivity, measuring_result, result_status, ENGLISH);
+      |                                          ~~~~~~~~~~~~~~~~^~~~~
+In file included from C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/allmyheaders.h:13:
+C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/measuring.h:34:34: note: expected 'char *' but argument is of type 'const char *'
+   34 | void display_measuring_text(char*name , uint16_t reference_value, uint16_t measured_value, uint8_t status, uint8_t language);
+      |                             ~~~~~^~~~
+arm-none-eabi-gcc -o "CubeMx.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\Documents\GIT_WORKSPACE\NTFR_SW_V2\CubeMx\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CubeMx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CubeMx.elf has a LOAD segment with RWX permissions
+Finished building target: CubeMx.elf
+ 
+arm-none-eabi-size  CubeMx.elf 
+arm-none-eabi-objdump -h -S CubeMx.elf  > "CubeMx.list"
+arm-none-eabi-objcopy  -O ihex CubeMx.elf  "CubeMx.hex"
+   text	   data	    bss	    dec	    hex	filename
+  66448	   1584	   7848	  75880	  12868	CubeMx.elf
+Finished building: default.size.stdout
+ 
+Finished building: CubeMx.hex
+ 
+Finished building: CubeMx.list
+ 
+
+17:41:15 Build Finished. 0 errors, 3 warnings. (took 993ms)
+

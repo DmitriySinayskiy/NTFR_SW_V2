@@ -1,0 +1,23 @@
+/*
+ * measuring.h
+ *
+ *  Created on: Sep 4, 2024
+ *      Author: user
+ */
+
+#ifndef MEASURING_H_
+#define MEASURING_H_
+
+#include "allmyheaders.h"
+
+#define LED_AMOUNT 5
+#define MEAS_RESULTS_IS_GOOD 1
+#define MEAS_RESULTS_IS_MEDIUM 2
+#define MEAS_RESULTS_IS_BAD	3
+
+void led_off();
+void led_all_on();
+void led_accumulation();
+
+
+#endif /* MEASURING_H_ */
