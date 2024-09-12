@@ -30,10 +30,12 @@ void led_accumulation();
 void led_measuring_results_reflection(uint8_t c_a_result);
 int conduct_acidity_loading_bar_calculation(uint16_t reference_acidity_conductivity, uint8_t temperature_correction_coef,uint16_t measured_acidity_conductivity );
 int display_loading_status(uint8_t bar_index,uint8_t id );
+
 void display_measuring_product(const uint8_t block, const uint16_t offset, uint8_t w, uint8_t h, uint8_t x, uint8_t y);
 void display_measuring_text(char*name , uint16_t reference_value, uint16_t measured_value, uint8_t status, uint8_t language);
+void display_product_norm(uint16_t reference_value, uint8_t language);
+void display_all_measuring_process_and_led(uint16_t measured_value, uint8_t id);
 
-//void led_measuring_results_reflecting(uint8_t c_a_result);
 
 
 #endif /* MEASURING_H_ */

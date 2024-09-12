@@ -299,6 +299,18 @@ int display_loading_status(uint8_t bar_index,uint8_t id )
 void display_measuring_product(const uint8_t block, const uint16_t offset, uint8_t w, uint8_t h, uint8_t x, uint8_t y)
 {
 	SPI_Flash_to_LCD(block, offset, w, h, x, y);
+	SPI_Flash_to_LCD(ARROW_MAIN_LIGHT_RIGHT);
+}
+ display_product_norm(uint16_t reference_value, uint8_t language, uint8_t id)
+{
+	char char_buffer[5] = {};
+	sprintf(char_buffer, "%d", reference_value );
+
+	SPI_Flash_to_LCD(9, 0 , 76, 42, 60, 30);
+
+	ST7735_WriteString(77, 52, char_buffer, Font_11x18, ST7735_NITRAT_NORM, ST7735_BLACK);
+	ST7735_WriteString(77, 34, "NORM", Font_11x18, ST7735_NITRAT_NORM, ST7735_BLACK);
+	SPI_Flash_to_LCD(ARROW_MAIN_LIGHT_RIGHT);
 }
 void display_measuring_text(char*name ,uint16_t reference_value, uint16_t measured_value, uint8_t status, uint8_t language)
 {
@@ -312,18 +324,18 @@ void display_measuring_text(char*name ,uint16_t reference_value, uint16_t measur
 	ST7735_WriteString(130, 67, char_buffer, Font_7x10, ST7735_FNT_LT_DEF, ST7735_BLACK);
 
 	sprintf(char_buffer, "%d", measured_value );
-	ST7735_WriteString(50, 26, char_buffer, Font_16x26, ST7735_GREEN, ST7735_BLACK);
+
 	if(status == MEAS_RESULTS_IS_GOOD)
 	{
-		ST7735_WriteString(50, 26, char_buffer, Font_16x26, ST7735_GREEN, ST7735_BLACK);
+		ST7735_WriteString(50, 27, char_buffer, Font_16x26, ST7735_NITRAT_GREEN, ST7735_BLACK);
 	}
 	else if(status == MEAS_RESULTS_IS_MEDIUM)
 	{
-		ST7735_WriteString(50, 26, char_buffer, Font_16x26, ST7735_YELLOW, ST7735_BLACK);
+		ST7735_WriteString(50, 27, char_buffer, Font_16x26, ST7735_NITRAT_YELLOW, ST7735_BLACK);
 	}
 	else if(status == MEAS_RESULTS_IS_BAD)
 	{
-		ST7735_WriteString(50, 26, char_buffer, Font_16x26, ST7735_RED, ST7735_BLACK);
+		ST7735_WriteString(50, 27, char_buffer, Font_16x26, ST7735_NITRAT_RED, ST7735_BLACK);
 	}
 
 	if(language == ENGLISH)
@@ -332,3 +344,4 @@ void display_measuring_text(char*name ,uint16_t reference_value, uint16_t measur
 	}
 
 }
+

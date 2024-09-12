@@ -22,6 +22,8 @@
 		<item key="caseSensitive" value="false"/>
 		<item key="searchFlags" value="227191"/>
 		<list key="previousPatterns">
+			<item value="c_a_result"/>
+			<item value="led_1hz_counter"/>
 			<item value="test_inc"/>
 			<item value="buf"/>
 			<item value="regmemadd_size"/>

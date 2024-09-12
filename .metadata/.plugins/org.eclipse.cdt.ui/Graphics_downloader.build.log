@@ -1,10 +1,10 @@
-12:43:13 **** Incremental Build of configuration Debug for project Graphics_downloader ****
+19:40:24 **** Incremental Build of configuration Debug for project Graphics_downloader ****
 make -j16 all 
 arm-none-eabi-size  Graphics_downloader.elf 
    text	   data	    bss	    dec	    hex	filename
-  67904	     20	   1700	  69624	  10ff8	Graphics_downloader.elf
+  19468	     20	   1700	  21188	   52c4	Graphics_downloader.elf
 Finished building: default.size.stdout
  
 
-12:43:13 Build Finished. 0 errors, 0 warnings. (took 370ms)
+19:40:25 Build Finished. 0 errors, 0 warnings. (took 204ms)
 
