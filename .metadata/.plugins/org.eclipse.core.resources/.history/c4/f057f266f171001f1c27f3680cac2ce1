@@ -410,7 +410,7 @@ int main(void)
 	  uint16_t measuring_result = 800;
 	  uint8_t id_product_to_display = 1;
 
-	  display_all_measuring_process_and_led(measuring_result, id_product_to_display);
+	 // display_all_measuring_process_and_led(measuring_result, id_product_to_display);
 
 
 	  uint16_t adc_values[3];
