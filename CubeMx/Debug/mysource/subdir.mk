@@ -5,6 +5,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../mysource/button.c \
 ../mysource/measuring.c \
 ../mysource/page_select.c \
 ../mysource/product_selection.c \
@@ -12,6 +13,7 @@ C_SRCS += \
 ../mysource/touch.c 
 
 OBJS += \
+./mysource/button.o \
 ./mysource/measuring.o \
 ./mysource/page_select.o \
 ./mysource/product_selection.o \
@@ -19,6 +21,7 @@ OBJS += \
 ./mysource/touch.o 
 
 C_DEPS += \
+./mysource/button.d \
 ./mysource/measuring.d \
 ./mysource/page_select.d \
 ./mysource/product_selection.d \
@@ -33,7 +36,7 @@ mysource/%.o mysource/%.su mysource/%.cyclo: ../mysource/%.c mysource/subdir.mk
 clean: clean-mysource
 
 clean-mysource:
-	-$(RM) ./mysource/measuring.cyclo ./mysource/measuring.d ./mysource/measuring.o ./mysource/measuring.su ./mysource/page_select.cyclo ./mysource/page_select.d ./mysource/page_select.o ./mysource/page_select.su ./mysource/product_selection.cyclo ./mysource/product_selection.d ./mysource/product_selection.o ./mysource/product_selection.su ./mysource/product_struct.cyclo ./mysource/product_struct.d ./mysource/product_struct.o ./mysource/product_struct.su ./mysource/touch.cyclo ./mysource/touch.d ./mysource/touch.o ./mysource/touch.su
+	-$(RM) ./mysource/button.cyclo ./mysource/button.d ./mysource/button.o ./mysource/button.su ./mysource/measuring.cyclo ./mysource/measuring.d ./mysource/measuring.o ./mysource/measuring.su ./mysource/page_select.cyclo ./mysource/page_select.d ./mysource/page_select.o ./mysource/page_select.su ./mysource/product_selection.cyclo ./mysource/product_selection.d ./mysource/product_selection.o ./mysource/product_selection.su ./mysource/product_struct.cyclo ./mysource/product_struct.d ./mysource/product_struct.o ./mysource/product_struct.su ./mysource/touch.cyclo ./mysource/touch.d ./mysource/touch.o ./mysource/touch.su
 
 .PHONY: clean-mysource
 

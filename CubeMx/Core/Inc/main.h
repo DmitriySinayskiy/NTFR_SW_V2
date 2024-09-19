@@ -136,9 +136,7 @@ void Error_Handler(void);
 #define S0_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
-#define BUT_SHORT 2
-#define BUT_LONG 1
-#define BUT_RESET 0
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

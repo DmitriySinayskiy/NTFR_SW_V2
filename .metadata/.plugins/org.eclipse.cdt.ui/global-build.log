@@ -1,6 +1,89 @@
-14:48:13 **** Incremental Build of configuration Debug for project CubeMx ****
+18:59:26 **** Incremental Build of configuration Debug for project CubeMx ****
 make -j16 all 
+arm-none-eabi-gcc "../mysource/measuring.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/measuring.d" -MT"mysource/measuring.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/measuring.o"
 arm-none-eabi-gcc "../mysource/page_select.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/page_select.d" -MT"mysource/page_select.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/page_select.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../mysource/page_select.c: In function 'SPI_Flash_to_LCD':
+../mysource/page_select.c:65:26: warning: passing argument 1 of 'W25qxx_ReadBlock' from incompatible pointer type [-Wincompatible-pointer-types]
+   65 |         W25qxx_ReadBlock(img_buffer, block, offset, img_byte_amount);
+      |                          ^~~~~~~~~~
+      |                          |
+      |                          uint16_t * {aka short unsigned int *}
+In file included from ../mysource/allmyheaders.h:23,
+                 from ../mysource/page_select.h:11,
+                 from ../mysource/page_select.c:8:
+C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx/w25qxx.h:105:40: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  105 |         void W25qxx_ReadBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_BlockSize);
+      |                               ~~~~~~~~~^~~~~~~
+../mysource/page_select.c: In function 'page_select_by_button':
+../mysource/page_select.c:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+   37 | }
+      | ^
+../mysource/measuring.c: In function 'display_loading_status':
+../mysource/measuring.c:299:1: warning: control reaches end of non-void function [-Wreturn-type]
+  299 | }
+      | ^
+../mysource/measuring.c: In function 'adc_poling':
+../mysource/measuring.c:365:1: warning: control reaches end of non-void function [-Wreturn-type]
+  365 | }
+      | ^
+../mysource/measuring.c: In function 'display_product_norm':
+../mysource/measuring.c:314:33: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  314 |         sprintf(char_buffer, "%d", product_array[id].conductivity );
+      |                                 ^
+../mysource/measuring.c:314:9: note: 'sprintf' output between 2 and 6 bytes into a destination of size 5
+  314 |         sprintf(char_buffer, "%d", product_array[id].conductivity );
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../mysource/measuring.c: In function 'display_measuring_text':
+../mysource/measuring.c:337:33: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  337 |         sprintf(char_buffer, "%d", reference_value );
+      |                                 ^
+../mysource/measuring.c:337:9: note: 'sprintf' output between 2 and 6 bytes into a destination of size 5
+  337 |         sprintf(char_buffer, "%d", reference_value );
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../mysource/measuring.c:340:33: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  340 |         sprintf(char_buffer, "%d", measured_value );
+      |                                 ^
+../mysource/measuring.c:340:9: note: 'sprintf' output between 2 and 6 bytes into a destination of size 5
+  340 |         sprintf(char_buffer, "%d", measured_value );
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:183:12: warning: unused variable 'id_to_displ_fast_scroll' [-Wunused-variable]
+  183 |    uint8_t id_to_displ_fast_scroll = 0;
+      |            ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:182:13: warning: unused variable 'touch_accel_to_disp' [-Wunused-variable]
+  182 |    uint16_t touch_accel_to_disp = 0;
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:181:12: warning: unused variable 'id_changed_by_touch' [-Wunused-variable]
+  181 |    uint8_t id_changed_by_touch = 0;
+      |            ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:180:12: warning: unused variable 'gl_id' [-Wunused-variable]
+  180 |    uint8_t gl_id = 0;
+      |            ^~~~~
+../Core/Src/main.c:179:13: warning: unused variable 'conduct_avg' [-Wunused-variable]
+  179 |    uint16_t conduct_avg = 0;
+      |             ^~~~~~~~~~~
+../Core/Src/main.c:178:13: warning: unused variable 'conduct2' [-Wunused-variable]
+  178 |    uint16_t conduct2 = 0;
+      |             ^~~~~~~~
+../Core/Src/main.c:177:13: warning: unused variable 'conduct1' [-Wunused-variable]
+  177 |    uint16_t conduct1 = 0;
+      |             ^~~~~~~~
+../Core/Src/main.c:176:13: warning: unused variable 'conduct0' [-Wunused-variable]
+  176 |    uint16_t conduct0 = 0;
+      |             ^~~~~~~~
+../Core/Src/main.c:174:8: warning: unused variable 'char_buffer' [-Wunused-variable]
+  174 |   char char_buffer[10];
+      |        ^~~~~~~~~~~
+../Core/Src/main.c: In function 'display_all_measuring_process_and_led':
+../Core/Src/main.c:901:59: warning: passing argument 1 of 'display_measuring_text' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  901 |                   display_measuring_text(product_array[id].name , product_array[id].conductivity, measured_value, result_status, ENGLISH);
+      |                                          ~~~~~~~~~~~~~~~~~^~~~~
+In file included from C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/allmyheaders.h:14,
+                 from ../Core/Src/main.c:25:
+C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/measuring.h:35:34: note: expected 'char *' but argument is of type 'const char *'
+   35 | void display_measuring_text(char*name , uint16_t reference_value, uint16_t measured_value, uint8_t status, uint8_t language);
+      |                             ~~~~~^~~~
 arm-none-eabi-gcc -o "CubeMx.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\Documents\GIT_WORKSPACE\NTFR_SW_V2\CubeMx\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CubeMx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CubeMx.elf has a LOAD segment with RWX permissions
 Finished building target: CubeMx.elf
@@ -9,7 +92,241 @@ arm-none-eabi-size  CubeMx.elf
 arm-none-eabi-objdump -h -S CubeMx.elf  > "CubeMx.list"
 arm-none-eabi-objcopy  -O ihex CubeMx.elf  "CubeMx.hex"
    text	   data	    bss	    dec	    hex	filename
-  57936	   1496	   7560	  66992	  105b0	CubeMx.elf
+  61044	   1580	   7892	  70516	  11374	CubeMx.elf
+Finished building: default.size.stdout
+ 
+Finished building: CubeMx.hex
+ 
+Finished building: CubeMx.list
+ 
+18:59:29 **** Incremental Build of configuration Debug for project CubeMx ****
+make -j16 all 
+arm-none-eabi-size  CubeMx.elf 
+   text	   data	    bss	    dec	    hex	filename
+  61044	   1580	   7892	  70516	  11374	CubeMx.elf
+Finished building: default.size.stdout
+ 
+19:00:49 **** Incremental Build of configuration Debug for project CubeMx ****
+make -j16 all 
+arm-none-eabi-gcc "../mysource/measuring.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/measuring.d" -MT"mysource/measuring.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/measuring.o"
+arm-none-eabi-gcc "../mysource/page_select.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/page_select.d" -MT"mysource/page_select.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/page_select.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../mysource/page_select.c: In function 'SPI_Flash_to_LCD':
+../mysource/page_select.c:65:26: warning: passing argument 1 of 'W25qxx_ReadBlock' from incompatible pointer type [-Wincompatible-pointer-types]
+   65 |         W25qxx_ReadBlock(img_buffer, block, offset, img_byte_amount);
+      |                          ^~~~~~~~~~
+      |                          |
+      |                          uint16_t * {aka short unsigned int *}
+In file included from ../mysource/allmyheaders.h:23,
+                 from ../mysource/page_select.h:11,
+                 from ../mysource/page_select.c:8:
+C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx/w25qxx.h:105:40: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  105 |         void W25qxx_ReadBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_BlockSize);
+      |                               ~~~~~~~~~^~~~~~~
+../mysource/page_select.c: In function 'page_select_by_button':
+../mysource/page_select.c:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+   37 | }
+      | ^
+../mysource/measuring.c: In function 'display_loading_status':
+../mysource/measuring.c:299:1: warning: control reaches end of non-void function [-Wreturn-type]
+  299 | }
+      | ^
+../mysource/measuring.c: In function 'adc_poling':
+../mysource/measuring.c:364:1: warning: control reaches end of non-void function [-Wreturn-type]
+  364 | }
+      | ^
+../mysource/measuring.c: In function 'display_product_norm':
+../mysource/measuring.c:314:33: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  314 |         sprintf(char_buffer, "%d", product_array[id].conductivity );
+      |                                 ^
+../mysource/measuring.c:314:9: note: 'sprintf' output between 2 and 6 bytes into a destination of size 5
+  314 |         sprintf(char_buffer, "%d", product_array[id].conductivity );
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../mysource/measuring.c: In function 'display_measuring_text':
+../mysource/measuring.c:336:33: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  336 |         sprintf(char_buffer, "%d", reference_value );
+      |                                 ^
+../mysource/measuring.c:336:9: note: 'sprintf' output between 2 and 6 bytes into a destination of size 5
+  336 |         sprintf(char_buffer, "%d", reference_value );
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../mysource/measuring.c:339:33: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
+  339 |         sprintf(char_buffer, "%d", measured_value );
+      |                                 ^
+../mysource/measuring.c:339:9: note: 'sprintf' output between 2 and 6 bytes into a destination of size 5
+  339 |         sprintf(char_buffer, "%d", measured_value );
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:183:12: warning: unused variable 'id_to_displ_fast_scroll' [-Wunused-variable]
+  183 |    uint8_t id_to_displ_fast_scroll = 0;
+      |            ^~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:182:13: warning: unused variable 'touch_accel_to_disp' [-Wunused-variable]
+  182 |    uint16_t touch_accel_to_disp = 0;
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:181:12: warning: unused variable 'id_changed_by_touch' [-Wunused-variable]
+  181 |    uint8_t id_changed_by_touch = 0;
+      |            ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:180:12: warning: unused variable 'gl_id' [-Wunused-variable]
+  180 |    uint8_t gl_id = 0;
+      |            ^~~~~
+../Core/Src/main.c:179:13: warning: unused variable 'conduct_avg' [-Wunused-variable]
+  179 |    uint16_t conduct_avg = 0;
+      |             ^~~~~~~~~~~
+../Core/Src/main.c:178:13: warning: unused variable 'conduct2' [-Wunused-variable]
+  178 |    uint16_t conduct2 = 0;
+      |             ^~~~~~~~
+../Core/Src/main.c:177:13: warning: unused variable 'conduct1' [-Wunused-variable]
+  177 |    uint16_t conduct1 = 0;
+      |             ^~~~~~~~
+../Core/Src/main.c:176:13: warning: unused variable 'conduct0' [-Wunused-variable]
+  176 |    uint16_t conduct0 = 0;
+      |             ^~~~~~~~
+../Core/Src/main.c:174:8: warning: unused variable 'char_buffer' [-Wunused-variable]
+  174 |   char char_buffer[10];
+      |        ^~~~~~~~~~~
+../Core/Src/main.c: In function 'display_all_measuring_process_and_led':
+../Core/Src/main.c:920:59: warning: passing argument 1 of 'display_measuring_text' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  920 |                   display_measuring_text(product_array[id].name , product_array[id].conductivity, measured_value, result_status, ENGLISH);
+      |                                          ~~~~~~~~~~~~~~~~~^~~~~
+In file included from C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/allmyheaders.h:14,
+                 from ../Core/Src/main.c:25:
+C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/measuring.h:35:34: note: expected 'char *' but argument is of type 'const char *'
+   35 | void display_measuring_text(char*name , uint16_t reference_value, uint16_t measured_value, uint8_t status, uint8_t language);
+      |                             ~~~~~^~~~
+arm-none-eabi-gcc -o "CubeMx.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\Documents\GIT_WORKSPACE\NTFR_SW_V2\CubeMx\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CubeMx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CubeMx.elf has a LOAD segment with RWX permissions
+Finished building target: CubeMx.elf
+ 
+arm-none-eabi-size  CubeMx.elf 
+arm-none-eabi-objdump -h -S CubeMx.elf  > "CubeMx.list"
+arm-none-eabi-objcopy  -O ihex CubeMx.elf  "CubeMx.hex"
+   text	   data	    bss	    dec	    hex	filename
+  61032	   1580	   7892	  70504	  11368	CubeMx.elf
+Finished building: default.size.stdout
+ 
+Finished building: CubeMx.hex
+ 
+Finished building: CubeMx.list
+ 
+19:04:22 **** Incremental Build of configuration Debug for project CubeMx ****
+make -j16 all 
+arm-none-eabi-gcc "../mysource/page_select.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/page_select.d" -MT"mysource/page_select.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/page_select.o"
+../mysource/page_select.c: In function 'SPI_Flash_to_LCD':
+../mysource/page_select.c:64:26: warning: passing argument 1 of 'W25qxx_ReadBlock' from incompatible pointer type [-Wincompatible-pointer-types]
+   64 |         W25qxx_ReadBlock(img_buffer, block, offset, img_byte_amount);
+      |                          ^~~~~~~~~~
+      |                          |
+      |                          uint16_t * {aka short unsigned int *}
+In file included from ../mysource/allmyheaders.h:23,
+                 from ../mysource/page_select.h:11,
+                 from ../mysource/page_select.c:8:
+C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx/w25qxx.h:105:40: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  105 |         void W25qxx_ReadBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_BlockSize);
+      |                               ~~~~~~~~~^~~~~~~
+../mysource/page_select.c: In function 'page_select_by_button':
+../mysource/page_select.c:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+   37 | }
+      | ^
+arm-none-eabi-gcc -o "CubeMx.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\Documents\GIT_WORKSPACE\NTFR_SW_V2\CubeMx\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CubeMx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CubeMx.elf has a LOAD segment with RWX permissions
+Finished building target: CubeMx.elf
+ 
+arm-none-eabi-size  CubeMx.elf 
+arm-none-eabi-objdump -h -S CubeMx.elf  > "CubeMx.list"
+arm-none-eabi-objcopy  -O ihex CubeMx.elf  "CubeMx.hex"
+   text	   data	    bss	    dec	    hex	filename
+  61036	   1580	   7892	  70508	  1136c	CubeMx.elf
+Finished building: default.size.stdout
+ 
+Finished building: CubeMx.hex
+ 
+Finished building: CubeMx.list
+ 
+19:04:59 **** Incremental Build of configuration Debug for project CubeMx ****
+make -j16 all 
+arm-none-eabi-gcc "../mysource/page_select.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/page_select.d" -MT"mysource/page_select.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/page_select.o"
+../mysource/page_select.c: In function 'SPI_Flash_to_LCD':
+../mysource/page_select.c:62:26: warning: passing argument 1 of 'W25qxx_ReadBlock' from incompatible pointer type [-Wincompatible-pointer-types]
+   62 |         W25qxx_ReadBlock(img_buffer, block, offset, img_byte_amount);
+      |                          ^~~~~~~~~~
+      |                          |
+      |                          uint16_t * {aka short unsigned int *}
+In file included from ../mysource/allmyheaders.h:23,
+                 from ../mysource/page_select.h:11,
+                 from ../mysource/page_select.c:8:
+C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx/w25qxx.h:105:40: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  105 |         void W25qxx_ReadBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_BlockSize);
+      |                               ~~~~~~~~~^~~~~~~
+../mysource/page_select.c: In function 'page_action':
+../mysource/page_select.c:64:1: error: expected declaration or statement at end of input
+   64 | }
+      | ^
+../mysource/page_select.c: In function 'page_select_by_button':
+../mysource/page_select.c:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+   37 | }
+      | ^
+../mysource/page_select.c: At top level:
+../mysource/page_select.c:57:6: warning: 'SPI_Flash_to_LCD' defined but not used [-Wunused-function]
+   57 | void SPI_Flash_to_LCD(uint16_t block, uint32_t offset, uint16_t w, uint16_t h, uint16_t x, uint16_t y)
+      |      ^~~~~~~~~~~~~~~~
+make: *** [mysource/subdir.mk:34: mysource/page_select.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+19:05:10 **** Incremental Build of configuration Debug for project CubeMx ****
+make -j16 all 
+arm-none-eabi-gcc "../mysource/page_select.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/page_select.d" -MT"mysource/page_select.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/page_select.o"
+../mysource/page_select.c: In function 'SPI_Flash_to_LCD':
+../mysource/page_select.c:62:26: warning: passing argument 1 of 'W25qxx_ReadBlock' from incompatible pointer type [-Wincompatible-pointer-types]
+   62 |         W25qxx_ReadBlock(img_buffer, block, offset, img_byte_amount);
+      |                          ^~~~~~~~~~
+      |                          |
+      |                          uint16_t * {aka short unsigned int *}
+In file included from ../mysource/allmyheaders.h:23,
+                 from ../mysource/page_select.h:11,
+                 from ../mysource/page_select.c:8:
+C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx/w25qxx.h:105:40: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  105 |         void W25qxx_ReadBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_BlockSize);
+      |                               ~~~~~~~~~^~~~~~~
+../mysource/page_select.c: In function 'page_action':
+../mysource/page_select.c:64:1: error: expected declaration or statement at end of input
+   64 | }
+      | ^
+../mysource/page_select.c: In function 'page_select_by_button':
+../mysource/page_select.c:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+   37 | }
+      | ^
+../mysource/page_select.c: At top level:
+../mysource/page_select.c:57:6: warning: 'SPI_Flash_to_LCD' defined but not used [-Wunused-function]
+   57 | void SPI_Flash_to_LCD(uint16_t block, uint32_t offset, uint16_t w, uint16_t h, uint16_t x, uint16_t y)
+      |      ^~~~~~~~~~~~~~~~
+make: *** [mysource/subdir.mk:34: mysource/page_select.o] Error 1
+"make -j16 all" terminated with exit code 2. Build might be incomplete.
+19:05:18 **** Incremental Build of configuration Debug for project CubeMx ****
+make -j16 all 
+arm-none-eabi-gcc "../mysource/page_select.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/page_select.d" -MT"mysource/page_select.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/page_select.o"
+../mysource/page_select.c: In function 'SPI_Flash_to_LCD':
+../mysource/page_select.c:62:26: warning: passing argument 1 of 'W25qxx_ReadBlock' from incompatible pointer type [-Wincompatible-pointer-types]
+   62 |         W25qxx_ReadBlock(img_buffer, block, offset, img_byte_amount);
+      |                          ^~~~~~~~~~
+      |                          |
+      |                          uint16_t * {aka short unsigned int *}
+In file included from ../mysource/allmyheaders.h:23,
+                 from ../mysource/page_select.h:11,
+                 from ../mysource/page_select.c:8:
+C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx/w25qxx.h:105:40: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  105 |         void W25qxx_ReadBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_BlockSize);
+      |                               ~~~~~~~~~^~~~~~~
+../mysource/page_select.c: In function 'page_select_by_button':
+../mysource/page_select.c:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+   37 | }
+      | ^
+arm-none-eabi-gcc -o "CubeMx.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\Documents\GIT_WORKSPACE\NTFR_SW_V2\CubeMx\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CubeMx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CubeMx.elf has a LOAD segment with RWX permissions
+Finished building target: CubeMx.elf
+ 
+arm-none-eabi-size  CubeMx.elf 
+arm-none-eabi-objdump -h -S CubeMx.elf  > "CubeMx.list"
+arm-none-eabi-objcopy  -O ihex CubeMx.elf  "CubeMx.hex"
+   text	   data	    bss	    dec	    hex	filename
+  61032	   1580	   7892	  70504	  11368	CubeMx.elf
 Finished building: default.size.stdout
  
 Finished building: CubeMx.hex

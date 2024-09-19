@@ -1,0 +1,54 @@
+/*
+ * page_select.c
+ *
+ *  Created on: Sep 19, 2024
+ *      Author: user
+ */
+
+#include "page_select.h"
+
+enum PAGE page;
+
+flag page_flag = {};
+uint8_t current_page = SELECT_PRODUCT_LIST_PAGE;
+
+// pga_ функция содержащая все действия на странице
+void page_select()
+{
+	uint8_t page = page_select_by_button();
+	page_action(page);
+}
+
+int page_select_by_button()
+{
+	if(current_page == SELECT_PRODUCT_LIST_PAGE && but_state_right == BUT_LONG)
+	{
+		but_state_reset();
+		current_page = DISPLAY_PRODUCT_NORM_PAGE;
+		return current_page;
+	}
+	else if(current_page == DISPLAY_PRODUCT_NORM_PAGE && but_state_left == BUT_LONG)
+	{
+		but_state_reset();
+		current_page = SELECT_PRODUCT_LIST_PAGE;
+		return current_page;
+	}
+}
+
+void page_action(uint8_t page)
+{
+	switch(page)
+	{
+		case SELECT_PRODUCT_LIST_PAGE:
+			select_product_list_action();
+		break;
+
+		case DISPLAY_PRODUCT_NORM_PAGE:
+			display_product_norm(gl_selected_id, ENGLISH);
+		break;
+
+		default:
+			SELECT_PRODUCT_LIST_PAGE:
+			select_product_list_action();
+	}
+}

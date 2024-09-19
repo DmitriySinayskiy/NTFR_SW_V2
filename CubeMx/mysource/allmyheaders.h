@@ -15,6 +15,7 @@
 #include "product_struct.h"
 #include "product_selection.h"
 #include "page_select.h"
+#include "button.h"
 
 //other libs
 #include "images.h"

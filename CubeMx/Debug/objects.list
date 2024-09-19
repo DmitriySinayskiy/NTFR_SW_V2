@@ -42,6 +42,7 @@
 "./USB_DEVICE/App/usbd_cdc_if.o"
 "./USB_DEVICE/App/usbd_desc.o"
 "./USB_DEVICE/Target/usbd_conf.o"
+"./mysource/button.o"
 "./mysource/measuring.o"
 "./mysource/page_select.o"
 "./mysource/product_selection.o"

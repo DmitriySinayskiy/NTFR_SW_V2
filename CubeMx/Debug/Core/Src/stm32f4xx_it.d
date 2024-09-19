@@ -45,6 +45,7 @@ Core/Src/stm32f4xx_it.o: ../Core/Src/stm32f4xx_it.c ../Core/Inc/main.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/product_struct.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/product_selection.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/page_select.h \
+ C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/button.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/images.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/st7735.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/fonts.h \
@@ -98,6 +99,7 @@ C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/measuring.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/product_struct.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/product_selection.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/page_select.h:
+C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/button.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/images.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/st7735.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/fonts.h:

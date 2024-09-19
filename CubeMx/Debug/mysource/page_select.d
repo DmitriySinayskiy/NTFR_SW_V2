@@ -41,7 +41,7 @@ mysource/page_select.o: ../mysource/page_select.c \
  ../Core/Inc/stm32f4xx_it.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/allmyheaders.h \
  ../mysource/touch.h ../mysource/measuring.h ../mysource/product_struct.h \
- ../mysource/product_selection.h \
+ ../mysource/product_selection.h ../mysource/button.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/images.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/st7735.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/fonts.h \
@@ -95,6 +95,7 @@ C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/allmyheaders.h:
 ../mysource/measuring.h:
 ../mysource/product_struct.h:
 ../mysource/product_selection.h:
+../mysource/button.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/images.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/st7735.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/fonts.h:
