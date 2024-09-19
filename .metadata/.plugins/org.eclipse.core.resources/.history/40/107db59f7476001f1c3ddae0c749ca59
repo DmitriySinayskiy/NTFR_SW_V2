@@ -1,0 +1,29 @@
+/*
+ * page_select.h
+ *
+ *  Created on: Sep 19, 2024
+ *      Author: user
+ */
+
+#ifndef PAGE_SELECT_H_
+#define PAGE_SELECT_H_
+
+#include "allmyheaders.h"
+
+enum PAGE {
+	SELECT_PRODUCT_LIST_PAGE,
+	SELECT_PRODUCT_NORM_PAGE,
+	MEASURING_PROCESS_PAGE
+};
+
+
+typedef struct
+{
+	uint8_t flag_select_product_list;
+	uint8_t flag_select_product_norm;
+
+}flag;
+
+extern enum PAGE current_page;
+
+#endif /* PAGE_SELECT_H_ */

@@ -8,6 +8,9 @@
 void MPR121_setregister(uint16_t regaddress, uint8_t value);
 int MPR121_readregister(uint16_t regaddress, uint8_t value);
 
+void touch_init();
+void touch_slider();
+
 // MPR121 Register Defines
 #define MHD_R	0x2B
 #define NHD_R	0x2C
@@ -56,6 +59,13 @@ int MPR121_readregister(uint16_t regaddress, uint8_t value);
 #define	ATO_CFGL	0x7E
 #define	ATO_CFGT	0x7F
 
+#define AFE_CFG1	0x5C
+#define AFE_CFG2	0x5D
+
+#define	ELE0_1_CHRG	0x6C
+#define	ELE2_3_CHRG	0x6D
+#define	ELE3_4_CHRG	0x6E
+#define	ELE5_6_CHRG	0x7D
 
 // Global Constants
 #define TOU_THRESH	0x06
@@ -63,11 +73,11 @@ int MPR121_readregister(uint16_t regaddress, uint8_t value);
 
 
 // MY_defines
-#define THRESH_EL0 163
-#define THRESH_EL1 155
-#define THRESH_EL2 152
-#define THRESH_EL3 156
-#define THRESH_EL4 169
+#define THRESH_EL0 215
+#define THRESH_EL1 238
+#define THRESH_EL2 235
+#define THRESH_EL3 231
+#define THRESH_EL4 222
 /*
 #define THRESH_EL0 159
 #define THRESH_EL1 151

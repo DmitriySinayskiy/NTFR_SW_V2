@@ -40,7 +40,8 @@ mysource/touch.o: ../mysource/touch.c ../mysource/touch.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h \
  ../Core/Inc/stm32f4xx_it.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/allmyheaders.h \
- ../mysource/measuring.h \
+ ../mysource/measuring.h ../mysource/product_struct.h \
+ ../mysource/product_selection.h ../mysource/page_select.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/images.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/st7735.h \
  C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/fonts.h \
@@ -91,6 +92,9 @@ mysource/touch.o: ../mysource/touch.c ../mysource/touch.h \
 ../Core/Inc/stm32f4xx_it.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/allmyheaders.h:
 ../mysource/measuring.h:
+../mysource/product_struct.h:
+../mysource/product_selection.h:
+../mysource/page_select.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/images.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/st7735.h:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc/fonts.h:

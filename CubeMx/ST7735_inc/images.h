@@ -347,7 +347,7 @@ extern const uint16_t M9_data[];
 #define CHECK_MARK_M 8,39774, 32, 30
 #define EXCLAMATION_MARK_M 8,41664, 32, 30
 #define CROSS_MARK_M 8,43584, 32, 30
-#define ARROW_MAIN_LIGHT_RIGHT 8, 58770, 8, 14, 144, 33
+#define ARROW_MAIN_LIGHT_RIGHT 8, 58770, 8, 14, 147, 33
 
 
 

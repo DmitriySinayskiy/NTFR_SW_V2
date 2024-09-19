@@ -1,0 +1,15 @@
+/*
+ * product_selection.h
+ *
+ *  Created on: Sep 15, 2024
+ *      Author: user
+ */
+
+#ifndef PRODUCT_SELECTION_H_
+#define PRODUCT_SELECTION_H_
+
+#include "allmyheaders.h"
+
+int select_product(uint8_t id);
+
+#endif /* PRODUCT_SELECTION_H_ */

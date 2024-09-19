@@ -8,5 +8,5 @@
 ../Core/Src/stm32f4xx_hal_msp.c:284:6:HAL_SPI_MspInit	4
 ../Core/Src/stm32f4xx_hal_msp.c:358:6:HAL_SPI_MspDeInit	2
 ../Core/Src/stm32f4xx_hal_msp.c:391:6:HAL_TIM_Base_MspInit	5
-../Core/Src/stm32f4xx_hal_msp.c:451:6:HAL_TIM_MspPostInit	3
-../Core/Src/stm32f4xx_hal_msp.c:503:6:HAL_TIM_Base_MspDeInit	5
+../Core/Src/stm32f4xx_hal_msp.c:452:6:HAL_TIM_MspPostInit	3
+../Core/Src/stm32f4xx_hal_msp.c:504:6:HAL_TIM_Base_MspDeInit	5

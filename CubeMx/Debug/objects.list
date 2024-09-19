@@ -43,5 +43,8 @@
 "./USB_DEVICE/App/usbd_desc.o"
 "./USB_DEVICE/Target/usbd_conf.o"
 "./mysource/measuring.o"
+"./mysource/page_select.o"
+"./mysource/product_selection.o"
+"./mysource/product_struct.o"
 "./mysource/touch.o"
 "./w25qxx/w25qxx.o"

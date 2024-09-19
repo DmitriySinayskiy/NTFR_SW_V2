@@ -33,7 +33,7 @@ int display_loading_status(uint8_t bar_index,uint8_t id );
 
 void display_measuring_product(const uint8_t block, const uint16_t offset, uint8_t w, uint8_t h, uint8_t x, uint8_t y);
 void display_measuring_text(char*name , uint16_t reference_value, uint16_t measured_value, uint8_t status, uint8_t language);
-void display_product_norm(uint16_t reference_value, uint8_t language);
+void display_product_norm(uint8_t id, uint8_t language);
 void display_all_measuring_process_and_led(uint16_t measured_value, uint8_t id);
 
 

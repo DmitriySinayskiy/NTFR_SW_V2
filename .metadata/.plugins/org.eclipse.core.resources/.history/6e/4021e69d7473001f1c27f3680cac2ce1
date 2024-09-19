@@ -1,0 +1,71 @@
+/*
+ * product_selection.c
+ *
+ *  Created on: Sep 15, 2024
+ *      Author: user
+ */
+#include "product_selection.h"
+
+uint8_t gl_selected_id = 0;
+
+int select_product_id(uint8_t id)
+{
+	//Select product using buttons
+	 if(but_state_right == BUT_SHORT)
+		  {
+			  if(id<60){
+				  id++;
+			  }
+			  else
+			  {
+				  id = 0;
+			  }
+			  but_state_reset();
+			  //return id;
+		  }
+		  else if(but_state_left==BUT_SHORT)
+		  {
+			  if(id>0)
+			  {
+				  id--;
+			  }
+			  else
+			  {
+				  id = 60;
+			  }
+			  but_state_reset();
+		  }
+	 //Select product using touch slider sensor
+
+	 return id;
+}
+
+int select_product_using_touch(uint8_t id)
+{
+
+}
+void display_selected_product(uint8_t id)
+{
+	ST7735_WriteString(50, 2,  product_array[id].name, Font_11x18, ST7735_WHITE, ST7735_BLACK);
+	if(id == 0)
+	{
+		SPI_Flash_to_LCD(product_array[id].addr_block_L, product_array[id].addr_offset_L , MAIN_PIC);
+		SPI_Flash_to_LCD(product_array[id+1].addr_block_S, product_array[id+1].addr_offset_S , RIGHT_PIC);
+		ST7735_FillRectangle(LEFT_PIC, ST7735_BLACK);
+	}
+	else if(id>0 && id<60)
+	{
+		SPI_Flash_to_LCD(product_array[id].addr_block_L, product_array[id].addr_offset_L , MAIN_PIC);
+		SPI_Flash_to_LCD(product_array[id+1].addr_block_S, product_array[id+1].addr_offset_S , RIGHT_PIC);
+		SPI_Flash_to_LCD(product_array[id-1].addr_block_S, product_array[id-1].addr_offset_S , LEFT_PIC);
+	}
+	else if(id==60)
+	{
+		SPI_Flash_to_LCD(product_array[id].addr_block_L, product_array[id].addr_offset_L , MAIN_PIC);
+		SPI_Flash_to_LCD(product_array[id-1].addr_block_S, product_array[id-1].addr_offset_S , LEFT_PIC);
+		ST7735_FillRectangle(RIGHT_PIC, ST7735_BLACK);
+	}
+
+	ST7735_FillRectangle(8, 2, 30, 75, ST7735_WHITE);
+
+}

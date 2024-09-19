@@ -90,91 +90,31 @@ uint8_t short_state_r = 0;
 uint8_t long_state_r = 0;
 uint32_t time_key_r = 0;
 uint8_t but_flag_ext = 0 ;
-uint8_t capreadbuffer[10] = {};
-uint8_t pwm_vibro_start = 0;
+//uint8_t capreadbuffer[10] = {};
 
 
-typedef struct
-{
-	const uint8_t id;
-	uint16_t conductivity;
-	uint16_t acidity;
-	uint8_t temperature_coeff;
+uint16_t chipid = 0x5B;
+ uint16_t regmemadd = 0x2B;
+ uint16_t regmemadd_size = 2;
+ uint8_t buf[1] = {0x0};
+ uint8_t bufbyte = 0x13;
+ uint8_t bufr[1] = {0,0};
+ //uint8_t test1 = 0x00;
 
-	const uint8_t addr_block_S;	//small size picture of a product
-	const uint16_t addr_offset_S;
+ uint8_t touch_set = 0;
+ uint8_t touch_end_flag = 0;
+// uint8_t ON_status = 1;
+// int8_t first_touch = -1;
+ //int8_t second_touch = -1;
+ //uint8_t touch_direction = 0; //1 -up ,2-down
+// uint8_t false_click_scrolling = 0;
+// uint8_t touch_thrsh[5] = {THRESH_EL0-3, THRESH_EL1-3, THRESH_EL2-3, THRESH_EL3-3, THRESH_EL4-3};
+ //uint8_t left_treshold = 0;
+// uint8_t right_treshold = 0;
 
-	const uint8_t addr_block_L;	//large size picture of a product
-	const uint16_t addr_offset_L;
-	const char * name ;
-
-}product;
-
-
-product product_array[] = {
-		{0,1000,2000,100, 1, 2592*0, 3, 2592*13, "APRICOT"},//APRICOT//
-		{1,1000,2000,100, 1, 2592*1, 4, 4232*0, "PINEAPPLE"},//PINEAPPLE
-		{2,1000,2000,100, 1, 2592*2, 4, 4232*1, "AVOCADO"},//AVOCADO
-		{3,1000,2000,100, 1, 2592*3, 4, 4232*2,"WATERMELON"},//WATERMELON
-		{4,1000,2000,100, 1, 2592*4, 4, 4232*3, "ORANGE"} ,//ORANGE
-		{5,1000,2000,100, 1, 2592*5, 4, 4232*4, "BANANA"} ,//BANANA
-		{6,1000,2000,100, 1, 2592*6, 4, 4232*5, "EGGPLANT"} ,//EGGPLANT
-		{7,1000,2000,100, 1, 2592*7, 4, 4232*6, "BATAT"} ,//BATAT
-		{8,1000,2000,100, 1, 2592*8, 4, 4232*7, "GRAPE"} ,//GRAPE
-		{9,1000,2000,100, 1, 2592*9, 4, 4232*8, "PEAR"} ,//PEAR
-		{10,1000,2000,100, 1, 2592*10, 4, 4232*9, "GRAPEFRUIT"} ,//GRAPEFRUIT
-		{11,1000,2000,100, 1, 2592*11, 4, 4232*10, "GUAVA"} ,//GUAVA
-		{12,1000,2000,100, 1, 2592*12, 4, 4232*11, "GUANABANA"} ,//GUANABANA
-		{13,1000,2000,100, 1, 2592*13, 4, 4232*12, "GREENS"} ,//GREENS
-		{14,1000,2000,100, 1, 2592*14, 4, 4232*13, "MELON"} ,//MELON
-		{15,1000,2000,100, 1, 2592*15, 4, 4232*14, "MUSCAT MELON"} ,//MUSCAT MELON
-		{16,1000,2000,100, 1, 2592*16, 5, 4232*0, "JACKFRUIT"} ,//JACKFRUIT
-		{17,1000,2000,100, 1, 2592*17, 5, 4232*1, "DURIAN"} ,//DURIAN
-		{18,1000,2000,100, 1, 2592*18, 5, 4232*2, "GINGER"} ,//GINGER
-		{19,1000,2000,100, 1, 2592*19, 5, 4232*3, "EARLY CABBAGE"} ,//EARLY CABBAGE
-		{20,1000,2000,100, 1, 2592*20, 5, 4232*4, "LATE CABBAGE"} ,//LATE CABBAGE
-		{21,1000,2000,100, 1, 2592*21, 5, 4232*5, "CAULIFLOWER"} ,//CAULIFLOWER
-		{22,1000,2000,100, 1, 2592*22, 5, 4232*6, "ZUCCINI"} ,//ZUCCINI
-		{23,1000,2000,100, 1, 2592*23, 5, 4232*7, "POTATOES"} ,//POTATOES
-		{24,1000,2000,100, 2, 2592*0, 5, 4232*8, "STRAWBERRIES"} ,//STRAWBERRIES
-		{25,1000,2000,100, 2, 2592*1, 5, 4232*9, "CORN"} ,//CORN
-		{26,1000,2000,100, 2, 2592*2, 5, 4232*10, "LEMON"} ,//LEMON
-		{27,1000,2000,100, 2, 2592*3, 5, 4232*11, "LITCHI LATER"} ,//LITCHI LATER
-		{28,1000,2000,100, 2, 2592*4, 5, 4232*12, "LIME"} ,//LIME
-		{29,1000,2000,100, 2, 2592*5, 5, 4232*13, "LONGAN"} ,//LONGAN
-		{30,1000,2000,100, 2, 2592*6, 5, 4232*14, "ONIONS"} ,//ONIONS
-		{31,1000,2000,100, 2, 2592*7, 6, 4232*0, "ONION GREEN"} ,//ONION GREEN
-		{32,1000,2000,100, 2, 2592*8, 6, 4232*1, "MANGO RIPE"} ,//MANGO RIPE
-		{33,1000,2000,100, 2, 2592*9, 6, 4232*2, "MANGOOSTEEN"} ,//MANGOOSTEEN
-		{34,1000,2000,100, 2, 2592*10, 6, 4232*3, "MANDARIN"} ,//MANDARIN
-		{35,1000,2000,100, 2, 2592*11, 6, 4232*4, "EARLY CARROTS"} ,//EARLY CARROTS
-		{36,1000,2000,100, 2, 2592*12, 6, 4232*5, "LATE CARROTS"} ,//LATE CARROTS
-		{37,1000,2000,100, 2, 2592*13, 6, 4232*6, "NECTARINE"} ,//NECTARINE
-		{38,1000,2000,100, 2, 2592*14, 6, 4232*7, "GROUND CUCUMBER"} ,//GROUND CUCUMBER
-		{39,1000,2000,100, 2, 2592*15, 6, 4232*8, "GREENHOUSE CUCUMBER"} ,//GREENHOUSE CUCUMBER
-		{40,1000,2000,100, 2, 2592*16, 6, 4232*9, "PAPAYA"} ,//PAPAYA
-		{41,1000,2000,100, 2, 2592*17, 6, 4232*10, "PITAHAYA RED"} ,//PITAHAYA RED
-		{42,1000,2000,100, 2, 2592*18, 6, 4232*11, "SWEET PEPPER"} ,//SWEET PEPPER
-		{43,1000,2000,100, 2, 2592*19, 6, 4232*12, "PEACH"} ,//PEACH
-		{44,1000,2000,100, 2, 2592*20, 6, 4232*13, "GROUND TOMATO"} ,//GROUND TOMATO
-		{45,1000,2000,100, 2, 2592*21, 6, 4232*14, "GREENHOUSE TOMATO"} ,//GREENHOUSE TOMATO
-		{46,1000,2000,100, 2, 2592*22, 7, 4232*0, "CHERRY TOMATO"} ,//CHERRY TOMATO
-		{47,1000,2000,100, 2, 2592*23, 7, 4232*1, "RAMBUTAN"} ,//RAMBUTAN
-		{48,1000,2000,100, 3, 2592*0, 7, 4232*2, "SPRING RADISH"} ,//SPRING RADISH
-		{49,1000,2000,100, 3, 2592*1, 7, 4232*3, "RADISH"} ,//RADISH
-		{50,1000,2000,100, 3, 2592*2, 7, 4232*4, "SAPODILLA"} ,//SAPODILLA
-		{51,1000,2000,100, 3, 2592*3, 7, 4232*5, "LETTUCE"} ,//LETTUCE
-		{52,1000,2000,100, 3, 2592*4, 7, 4232*6, "BEETROOT"} ,//BEETROOT
-		{53,1000,2000,100, 3, 2592*5, 7, 4232*7, "RED PLUM"} ,//RED PLUM
-		{54,1000,2000,100, 3, 2592*6, 7, 4232*8, "PERSIMMON"} ,//PERSIMMON
-		{55,1000,2000,100, 3, 2592*7, 7, 4232*9, "GARLIC"} ,//GARLIC
-		{56,1000,2000,100, 3, 2592*8, 7, 4232*10, "CHAMPIGNONS"} ,//CHAMPIGNONS
-		{57,1000,2000,100, 3, 2592*9, 7, 4232*11, "APPLE"} ,//APPLE
-		{58,1000,2000,100, 3, 2592*10, 7, 4232*12, "FRESH MEAT"} ,//FRESH MEAT
-		{59,1000,2000,100, 3, 2592*11, 7, 4232*13, "FRESH FISH"} ,//FRESH FISH
-		{60,1000,2000,100, 3, 2592*12, 7, 4232*14, "CHILDREN'NORM"} //CHILDREN'S NORM
-    };
-
+ uint16_t test_inc = 1000;
+ uint8_t gl_id_to_display = 0;
+ //TIM3->CCR3 = 50;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 
@@ -273,60 +213,62 @@ void but_state_reset()
 }
 
 
-void touch_init()
-{
-	MPR121_setregister(MHD_R,0x01);
-	MPR121_setregister(NHD_R,0x01);
-	MPR121_setregister(NCL_R,0x00);
-	MPR121_setregister(FDL_R,0x00);
-
-	MPR121_setregister(MHD_F,0x01);
-	MPR121_setregister(NHD_F,0x01);
-	MPR121_setregister(NCL_F,0xFF);
-	MPR121_setregister(FDL_F,0x02);
-
-	MPR121_setregister(ELE0_T,TOU_THRESH);
-	MPR121_setregister(ELE0_R,TOU_THRESH);
-
-	MPR121_setregister(ELE1_T,TOU_THRESH);
-	MPR121_setregister(ELE1_R,TOU_THRESH);
-
-	MPR121_setregister(ELE2_T,TOU_THRESH);
-	MPR121_setregister(ELE2_R,TOU_THRESH);
-
-	MPR121_setregister(ELE3_T,TOU_THRESH);
-	MPR121_setregister(ELE3_R,TOU_THRESH);
-
-	MPR121_setregister(ELE4_T,TOU_THRESH);
-	MPR121_setregister(ELE4_R,TOU_THRESH);
-
-	MPR121_setregister(ELE5_T,TOU_THRESH);
-	MPR121_setregister(ELE5_R,TOU_THRESH);
-
-	MPR121_setregister(ELE6_T,TOU_THRESH);
-	MPR121_setregister(ELE6_R,TOU_THRESH);
-
-	MPR121_setregister(ELE7_T,TOU_THRESH);
-	MPR121_setregister(ELE7_R,TOU_THRESH);
-
-	MPR121_setregister(ELE8_T,TOU_THRESH);
-	MPR121_setregister(ELE8_R,TOU_THRESH);
-
-	MPR121_setregister(ELE9_T,TOU_THRESH);
-	MPR121_setregister(ELE9_R,TOU_THRESH);
-
-	MPR121_setregister(ELE10_T,TOU_THRESH);
-	MPR121_setregister(ELE10_R,TOU_THRESH);
-
-	MPR121_setregister(ELE11_T,TOU_THRESH);
-	MPR121_setregister(ELE11_R,TOU_THRESH);
-
-	MPR121_setregister(FIL_CFG,0x04);
-	MPR121_setregister(ELE_CFG,0x0C);
-	MPR121_setregister(ELE_CFG,0x0C);
-	MPR121_setregister(ATO_CFG0,0x0F);
-	MPR121_setregister(ATO_CFGU,0xC8);
-}
+//void touch_init()
+//{
+//	MPR121_setregister(MHD_R,0x01);
+//	MPR121_setregister(NHD_R,0x01);
+//	MPR121_setregister(NCL_R,0x00);
+//	MPR121_setregister(FDL_R,0x00);
+//
+//	MPR121_setregister(MHD_F,0x01);
+//	MPR121_setregister(NHD_F,0x01);
+//	MPR121_setregister(NCL_F,0xFF);
+//	MPR121_setregister(FDL_F,0x02);
+//
+//	MPR121_setregister(ELE0_T,TOU_THRESH);
+//	MPR121_setregister(ELE0_R,TOU_THRESH);
+//
+//	MPR121_setregister(ELE1_T,TOU_THRESH);
+//	MPR121_setregister(ELE1_R,TOU_THRESH);
+//
+//	MPR121_setregister(ELE2_T,TOU_THRESH);
+//	MPR121_setregister(ELE2_R,TOU_THRESH);
+//
+//	MPR121_setregister(ELE3_T,TOU_THRESH);
+//	MPR121_setregister(ELE3_R,TOU_THRESH);
+//
+//	MPR121_setregister(ELE4_T,TOU_THRESH);
+//	MPR121_setregister(ELE4_R,TOU_THRESH);
+//
+//	MPR121_setregister(ELE5_T,TOU_THRESH);
+//	MPR121_setregister(ELE5_R,TOU_THRESH);
+//
+//	MPR121_setregister(ELE6_T,TOU_THRESH);
+//	MPR121_setregister(ELE6_R,TOU_THRESH);
+//
+//	MPR121_setregister(ELE7_T,TOU_THRESH);
+//	MPR121_setregister(ELE7_R,TOU_THRESH);
+//
+//	MPR121_setregister(ELE8_T,TOU_THRESH);
+//	MPR121_setregister(ELE8_R,TOU_THRESH);
+//
+//	MPR121_setregister(ELE9_T,TOU_THRESH);
+//	MPR121_setregister(ELE9_R,TOU_THRESH);
+//
+//	MPR121_setregister(ELE10_T,TOU_THRESH);
+//	MPR121_setregister(ELE10_R,TOU_THRESH);
+//
+//	MPR121_setregister(ELE11_T,TOU_THRESH);
+//	MPR121_setregister(ELE11_R,TOU_THRESH);
+//
+//	MPR121_setregister(AFE_CFG1,0x15);
+//
+//	MPR121_setregister(FIL_CFG,0x04);
+//	MPR121_setregister(ELE_CFG,0x0C);
+//	MPR121_setregister(ELE_CFG,0x0C);
+//	MPR121_setregister(ATO_CFG0,0x0F);
+//	MPR121_setregister(ATO_CFGU,0xC8);
+//}
 
 /* USER CODE END 0 */
 
@@ -399,7 +341,11 @@ int main(void)
    uint16_t conduct1 = 0;
    uint16_t conduct2 = 0;
    uint16_t conduct_avg = 0;
-
+   uint8_t gl_id = 0;
+   uint8_t id_changed_by_touch = 0;
+   uint16_t touch_accel_to_disp = 0;
+   uint8_t id_to_displ_fast_scroll = 0;
+//   touch_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -407,73 +353,99 @@ int main(void)
   while (1)
   {
 
-	  uint16_t measuring_result = 800;
-	  uint8_t id_product_to_display = 1;
+	  button_state_determ();
+	  gl_id_to_display  = select_product_id(gl_id_to_display);
 
-	  display_all_measuring_process_and_led(measuring_result, id_product_to_display);
+	  page_select();
 
+	  display_selected_product(gl_id_to_display);
 
-	  uint16_t adc_values[3];
-	  	  uint32_t channels[] = {
-	  			  ADC_CHANNEL_0,
-	  			  ADC_CHANNEL_1,
-	  			  ADC_CHANNEL_2,
-	  	  };
+	  MPR121_setregister(MHD_R,0x01);
 
-	  	  ST7735_WriteString(5, 3,  "CH0:", Font_11x18, ST7735_MAGENTA, ST7735_BG_DEF);
-	  	  ST7735_WriteString(5, 23, "CH1:", Font_11x18, ST7735_MAGENTA, ST7735_BG_DEF);
-	  	  ST7735_WriteString(5, 43, "CH2:", Font_11x18, ST7735_MAGENTA, ST7735_BG_DEF);
-	  	  ST7735_WriteString(5, 63, "AVG:", Font_11x18, ST7735_MAGENTA, ST7735_BG_DEF);
+	  if(touch_irq){
+
+		  touch_slider();
+	  }
 
 
-	  	  HAL_GPIO_WritePin(S1_GPIO_Port, S1_Pin, GPIO_PIN_RESET);
-	  	  HAL_GPIO_WritePin(S0_GPIO_Port, S0_Pin, GPIO_PIN_RESET);
-
-	  	  for(int i = 0; i < 3; i++) {
-	  		  ADC_Select_Channel(channels[i]);
-	  		  HAL_ADC_Start(&hadc1);
-	  		  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	  		  adc_values[i] = HAL_ADC_GetValue(&hadc1);
-	  		  HAL_ADC_Stop(&hadc1);
-	  	  }
-
-	  	  conduct0 = adc_values[1];
-	  	  sprintf(char_buffer, "%04d", conduct0);
-	  	  ST7735_WriteString(55, 3, char_buffer, Font_11x18, ST7735_FNT_LT_DEF, ST7735_BG_DEF);
 
 
-	  	  HAL_GPIO_WritePin(S1_GPIO_Port, S1_Pin, GPIO_PIN_RESET);
-	  	  HAL_GPIO_WritePin(S0_GPIO_Port, S0_Pin, GPIO_PIN_SET);
-
-	  	  for(int i = 0; i < 3; i++) {
-	  	  		  ADC_Select_Channel(channels[i]);
-	  	  		  HAL_ADC_Start(&hadc1);
-	  	  		  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	  	  		  adc_values[i] = HAL_ADC_GetValue(&hadc1);
-	  	  		  HAL_ADC_Stop(&hadc1);
-	  	  }
-	  	  conduct1 = adc_values[1];
-	  	  sprintf(char_buffer, "%04d", conduct1);
-	  	  ST7735_WriteString(55, 23, char_buffer, Font_11x18, ST7735_FNT_LT_DEF, ST7735_BG_DEF);
 
 
-	  	  HAL_GPIO_WritePin(S1_GPIO_Port, S1_Pin, GPIO_PIN_SET);
-	  	  HAL_GPIO_WritePin(S0_GPIO_Port, S0_Pin, GPIO_PIN_RESET);
-
-	  	  for(int i = 0; i < 3; i++) {
-	  	  		  ADC_Select_Channel(channels[i]);
-	  	  		  HAL_ADC_Start(&hadc1);
-	  	  		  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-	  	  		  adc_values[i] = HAL_ADC_GetValue(&hadc1);
-	  	  		  HAL_ADC_Stop(&hadc1);
-	  	  }
-	  	  conduct2 = adc_values[1];
-	  	  sprintf(char_buffer, "%04d", conduct2);
-	  	  ST7735_WriteString(55, 43, char_buffer, Font_11x18, ST7735_FNT_LT_DEF, ST7735_BG_DEF);
-
-	  	  conduct_avg = (conduct0+conduct1+conduct2)/3;
 
 
+
+
+
+
+
+
+
+
+
+
+//
+//
+//
+//
+//
+//
+//	  uint16_t adc_values[3];
+//	  	  uint32_t channels[] = {
+//	  			  ADC_CHANNEL_0,
+//	  			  ADC_CHANNEL_1,
+//	  			  ADC_CHANNEL_2,
+//	  	  };
+//
+//
+//	  	  HAL_GPIO_WritePin(S1_GPIO_Port, S1_Pin, GPIO_PIN_RESET);
+//	  	  HAL_GPIO_WritePin(S0_GPIO_Port, S0_Pin, GPIO_PIN_RESET);
+//
+//	  	  for(int i = 0; i < 3; i++) {
+//	  		  ADC_Select_Channel(channels[i]);
+//	  		  HAL_ADC_Start(&hadc1);
+//	  		  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+//	  		  adc_values[i] = HAL_ADC_GetValue(&hadc1);
+//	  		  HAL_ADC_Stop(&hadc1);
+//	  	  }
+//
+//	  	  conduct0 = adc_values[1];
+//	  	//  sprintf(char_buffer, "%04d", conduct0);
+//	  //	  ST7735_WriteString(55, 3, char_buffer, Font_11x18, ST7735_FNT_LT_DEF, ST7735_BG_DEF);
+//
+//
+//	  	  HAL_GPIO_WritePin(S1_GPIO_Port, S1_Pin, GPIO_PIN_RESET);
+//	  	  HAL_GPIO_WritePin(S0_GPIO_Port, S0_Pin, GPIO_PIN_SET);
+//
+//	  	  for(int i = 0; i < 3; i++) {
+//	  	  		  ADC_Select_Channel(channels[i]);
+//	  	  		  HAL_ADC_Start(&hadc1);
+//	  	  		  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+//	  	  		  adc_values[i] = HAL_ADC_GetValue(&hadc1);
+//	  	  		  HAL_ADC_Stop(&hadc1);
+//	  	  }
+//	  	  conduct1 = adc_values[1];
+//	  	//  sprintf(char_buffer, "%04d", conduct1);
+//	  	//  ST7735_WriteString(55, 23, char_buffer, Font_11x18, ST7735_FNT_LT_DEF, ST7735_BG_DEF);
+////
+//
+//	  	  HAL_GPIO_WritePin(S1_GPIO_Port, S1_Pin, GPIO_PIN_SET);
+//	  	  HAL_GPIO_WritePin(S0_GPIO_Port, S0_Pin, GPIO_PIN_RESET);
+//
+//	  	  for(int i = 0; i < 3; i++) {
+//	  	  		  ADC_Select_Channel(channels[i]);
+//	  	  		  HAL_ADC_Start(&hadc1);
+//	  	  		  HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+//	  	  		  adc_values[i] = HAL_ADC_GetValue(&hadc1);
+//	  	  		  HAL_ADC_Stop(&hadc1);
+//	  	  }
+//	  	  conduct2 = adc_values[1];
+//	  	//  sprintf(char_buffer, "%04d", conduct2);
+//	  	//  ST7735_WriteString(55, 43, char_buffer, Font_11x18, ST7735_FNT_LT_DEF, ST7735_BG_DEF);
+//
+//	  	  conduct_avg = (conduct0+conduct1+conduct2)/3;
+
+	  	  but_state_reset();
   }
 
 
@@ -904,6 +876,10 @@ static void MX_TIM3_Init(void)
   {
     Error_Handler();
   }
+  if (HAL_TIM_OnePulse_Init(&htim3, TIM_OPMODE_SINGLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
   if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
@@ -1010,11 +986,12 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, ST7735_DC_Pin|ST7735_CS_Pin|ST7735_RES_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, LED_GREEN_0_Pin|LED_BLUE_0_Pin|LED_RED_1_Pin|LED_GREEN_1_Pin
-                          |LED_BLUE_1_Pin|LED_RED_0_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(GPIOB, VIBRO_Pin|S1_Pin|OE_Pin|DFU_FORCE_Pin
+                          |S0_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, S1_Pin|OE_Pin|DFU_FORCE_Pin|S0_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, LED_GREEN_0_Pin|LED_BLUE_0_Pin|LED_RED_1_Pin|LED_GREEN_1_Pin
+                          |LED_BLUE_1_Pin|LED_RED_0_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pins : FLASH_CS_Pin LED_RED_2_Pin LED_GREEN_2_Pin LED_BLUE_2_Pin
                            LED_RED_3_Pin LED_GREEN_3_Pin LED_BLUE_3_Pin LED_RED_4_Pin
@@ -1040,12 +1017,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : LED_GREEN_0_Pin LED_BLUE_0_Pin S1_Pin OE_Pin
-                           DFU_FORCE_Pin LED_RED_1_Pin LED_GREEN_1_Pin LED_BLUE_1_Pin
-                           LED_RED_0_Pin S0_Pin */
-  GPIO_InitStruct.Pin = LED_GREEN_0_Pin|LED_BLUE_0_Pin|S1_Pin|OE_Pin
-                          |DFU_FORCE_Pin|LED_RED_1_Pin|LED_GREEN_1_Pin|LED_BLUE_1_Pin
-                          |LED_RED_0_Pin|S0_Pin;
+  /*Configure GPIO pins : VIBRO_Pin LED_GREEN_0_Pin LED_BLUE_0_Pin S1_Pin
+                           OE_Pin DFU_FORCE_Pin LED_RED_1_Pin LED_GREEN_1_Pin
+                           LED_BLUE_1_Pin LED_RED_0_Pin S0_Pin */
+  GPIO_InitStruct.Pin = VIBRO_Pin|LED_GREEN_0_Pin|LED_BLUE_0_Pin|S1_Pin
+                          |OE_Pin|DFU_FORCE_Pin|LED_RED_1_Pin|LED_GREEN_1_Pin
+                          |LED_BLUE_1_Pin|LED_RED_0_Pin|S0_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

@@ -41,6 +41,8 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
 extern uint8_t gl_flag_led_pwm;
+
+
 extern TIM_HandleTypeDef htim2;
 /* USER CODE END PV */
 
@@ -61,6 +63,7 @@ extern DMA_HandleTypeDef hdma_spi1_rx;
 extern DMA_HandleTypeDef hdma_spi1_tx;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
 /* USER CODE BEGIN EV */
 
@@ -72,6 +75,9 @@ uint8_t gl_int_5hz_tim2_for_pic = 0;
 uint8_t gl_int_1hz_tim2 = 0;
 uint8_t led_1hz_counter = 0;
 uint8_t gl_led_color_result_blink_counter = 0;
+uint8_t gl_touch_change_id = 0;
+uint16_t gl_touch_accel = 0;
+uint16_t gl_touch_accel_inc = 0;
 
 extern uint8_t gl_led_pwm_state;
 
@@ -251,26 +257,33 @@ void TIM1_UP_TIM10_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles TIM1 trigger and commutation interrupts and TIM11 global interrupt.
-  */
-void TIM1_TRG_COM_TIM11_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 0 */
-
-  /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim1);
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM11_IRQn 1 */
-
-  /* USER CODE END TIM1_TRG_COM_TIM11_IRQn 1 */
-}
-
-/**
   * @brief This function handles TIM2 global interrupt.
   */
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
+	if(gl_touch_accel)
+	{
+		gl_touch_accel_inc++;
+	}
+	if(gl_touch_change_id)
+	{
+		gl_touch_change_id++;
+		HAL_GPIO_WritePin(VIBRO_GPIO_Port, VIBRO_Pin, GPIO_PIN_SET);
+		if(gl_touch_change_id == 70)
+		{
+			HAL_GPIO_WritePin(VIBRO_GPIO_Port, VIBRO_Pin, GPIO_PIN_RESET);
+			gl_touch_change_id = 0;
+			//HAL_TIM_Base_Stop_IT(&htim2);
+		}
+	}
+
 	gl_counter_1000hz_tim2++;
+	gl_selected_pause++;
+	if(gl_selected_pause >0 && gl_selected_pause < 5000)
+	{
+		gl_selected_pause++;
+	}
 
 	if(gl_counter_1000hz_tim2 % 500 == 0)
 	{
@@ -311,6 +324,20 @@ void TIM2_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles TIM3 global interrupt.
+  */
+void TIM3_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM3_IRQn 0 */
+
+  /* USER CODE END TIM3_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim3);
+  /* USER CODE BEGIN TIM3_IRQn 1 */
+
+  /* USER CODE END TIM3_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM4 global interrupt.
   */
 void TIM4_IRQHandler(void)
@@ -347,6 +374,13 @@ void RTC_Alarm_IRQHandler(void)
 {
   /* USER CODE BEGIN RTC_Alarm_IRQn 0 */
 	led_1hz_counter++;
+
+	if(gl_selected_pause == 0 && gl_selected_flag == 1)
+	{
+		gl_selected_pause = 1;
+		gl_selected_flag = 0;
+	}
+
   /* USER CODE END RTC_Alarm_IRQn 0 */
   HAL_RTC_AlarmIRQHandler(&hrtc);
   /* USER CODE BEGIN RTC_Alarm_IRQn 1 */

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;CubeMx/mysource/page_select.g&apos; to &apos;page_select.h&apos;" description="Rename resource &apos;page_select.g&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="mysource/page_select.g" name="page_select.h" stamp="1726736048269" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;CubeMx/mysource/product_sctruct.c&apos; to &apos;product_struct.c&apos;" description="Rename resource &apos;product_sctruct.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="mysource/product_sctruct.c" name="product_struct.c" stamp="1726736075869" updateReferences="true"/>
+</session>

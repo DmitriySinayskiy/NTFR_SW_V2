@@ -5,5 +5,6 @@
 ../mysource/measuring.c:239:5:conduct_acidity_loading_bar_calculation	32	static
 ../mysource/measuring.c:275:5:display_loading_status	32	static
 ../mysource/measuring.c:299:6:display_measuring_product	32	static
-../mysource/measuring.c:304:2:display_product_norm	40	static
-../mysource/measuring.c:315:6:display_measuring_text	48	static
+../mysource/measuring.c:305:6:display_product_norm	40	static
+../mysource/measuring.c:322:6:display_measuring_text	48	static
+../mysource/measuring.c:355:5:adc_poling	4	static

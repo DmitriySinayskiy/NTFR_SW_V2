@@ -301,20 +301,27 @@ void display_measuring_product(const uint8_t block, const uint16_t offset, uint8
 	SPI_Flash_to_LCD(block, offset, w, h, x, y);
 	SPI_Flash_to_LCD(ARROW_MAIN_LIGHT_RIGHT);
 }
- display_product_norm(uint16_t reference_value, uint8_t language, uint8_t id)
+
+void display_product_norm(uint8_t id, uint8_t language)
 {
 	char char_buffer[5] = {};
-	sprintf(char_buffer, "%d", reference_value );
+	sprintf(char_buffer, "%d", product_array[id].conductivity );
 
 	SPI_Flash_to_LCD(9, 0 , 76, 42, 60, 30);
+	SPI_Flash_to_LCD(product_array[id].addr_block_L, product_array[id].addr_offset_L, 46, 46, 5, 20);
 
-	ST7735_WriteString(77, 52, char_buffer, Font_11x18, ST7735_NITRAT_NORM, ST7735_BLACK);
-	ST7735_WriteString(77, 34, "NORM", Font_11x18, ST7735_NITRAT_NORM, ST7735_BLACK);
+
+	ST7735_WriteString(76, 52, char_buffer, Font_11x18, ST7735_NITRAT_NORM, ST7735_BLACK);
+	ST7735_WriteString(76, 34, "NORM", Font_11x18, ST7735_NITRAT_NORM, ST7735_BLACK);
+
+	ST7735_WriteString(50, 3,  product_array[id].name , Font_11x18, ST7735_WHITE, ST7735_BLACK);
+
 	SPI_Flash_to_LCD(ARROW_MAIN_LIGHT_RIGHT);
 }
+
 void display_measuring_text(char*name ,uint16_t reference_value, uint16_t measured_value, uint8_t status, uint8_t language)
 {
-	ST7735_WriteString(50, 4,  name, Font_11x18, ST7735_WHITE, ST7735_BLACK);
+	ST7735_WriteString(50, 3,  name, Font_11x18, ST7735_WHITE, ST7735_BLACK);
 
 	char char_buffer[5] = {};
 
@@ -344,4 +351,11 @@ void display_measuring_text(char*name ,uint16_t reference_value, uint16_t measur
 	}
 
 }
+
+int adc_poling()
+{
+
+}
+
+
 

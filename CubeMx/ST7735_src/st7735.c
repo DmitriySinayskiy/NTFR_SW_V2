@@ -250,7 +250,7 @@ void ST7735_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, u
     ST7735_Unselect();
 }
 
-void ST7735_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
+void ST7735_FillRectangle( uint16_t w, uint16_t h,uint16_t x, uint16_t y, uint16_t color) {
     // clipping
     if((x >= ST7735_WIDTH) || (y >= ST7735_HEIGHT)) return;
     if((x + w - 1) >= ST7735_WIDTH) w = ST7735_WIDTH - x;
@@ -271,7 +271,7 @@ void ST7735_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16
 }
 
 void ST7735_FillScreen(uint16_t color) {
-    ST7735_FillRectangle(0, 0, ST7735_WIDTH, ST7735_HEIGHT, color);
+    ST7735_FillRectangle(ST7735_WIDTH, ST7735_HEIGHT, 0, 0,  color);
 }
 
 void ST7735_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t* data) {

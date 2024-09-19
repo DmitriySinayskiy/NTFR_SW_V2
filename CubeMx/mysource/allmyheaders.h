@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include "main.h"
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_it.h"
@@ -11,6 +12,9 @@
 //myheaders
 #include "touch.h"
 #include "measuring.h"
+#include "product_struct.h"
+#include "product_selection.h"
+#include "page_select.h"
 
 //other libs
 #include "images.h"
@@ -29,6 +33,17 @@ extern uint8_t gl_int_1hz_tim2;
 extern uint8_t led_1hz_counter;
 extern uint8_t gl_led_color_result_blink_counter;
 extern uint8_t gl_loading_bar_stop_flag;
+extern uint8_t but_state_left;
+extern uint8_t but_state_right;
+
+extern uint16_t gl_selected_pause;
+extern uint8_t gl_selected_flag;
+extern uint8_t gl_touch_change_id;
+extern uint16_t gl_touch_accel;
+extern uint8_t touch_irq;
+extern uint8_t gl_id_to_display;
+
+extern uint16_t gl_touch_accel_inc;
 //externs for interrupts END
 
 #define ENGLISH 1

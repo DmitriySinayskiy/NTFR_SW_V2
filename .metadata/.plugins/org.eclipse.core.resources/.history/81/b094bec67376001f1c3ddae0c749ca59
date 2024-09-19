@@ -1,0 +1,24 @@
+/*
+ * page_select.c
+ *
+ *  Created on: Sep 19, 2024
+ *      Author: user
+ */
+
+#include "page_select.h"
+
+enum Page_name current_page;
+
+void page_select()
+{
+	switch(current_page)
+	{
+		case SELECT_PRODUCT_PAGE :
+
+		break;
+
+		case SELECTED_PRODUCT_NORM_PAGE :
+
+		break;
+	}
+}

@@ -1,0 +1,17 @@
+/*
+ * product_struct.h
+ *
+ *  Created on: Sep 15, 2024
+ *      Author: user
+ */
+
+#ifndef PRODUCT_STRUCT_H_
+#define PRODUCT_STRUCT_H_
+
+#include "allmyheaders.h"
+
+
+
+extern product product_array[];
+
+#endif /* PRODUCT_STRUCT_H_ */
