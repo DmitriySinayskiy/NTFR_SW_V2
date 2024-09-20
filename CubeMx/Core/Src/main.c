@@ -81,7 +81,7 @@ static void MX_TIM1_Init(void);
 
 uint8_t touch_irq = 0;
 
- uint8_t gl_id_to_display = 0;
+uint8_t gl_id_to_display = 0;
 
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
@@ -93,16 +93,17 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 }
 
 
-void ADC_Select_Channel(uint32_t ch) {
-    ADC_ChannelConfTypeDef conf = {
-        .Channel = ch,
-        .Rank = 1,
-        .SamplingTime = ADC_SAMPLETIME_84CYCLES,
-    };
-    if (HAL_ADC_ConfigChannel(&hadc1, &conf) != HAL_OK) {
-        Error_Handler();
-    }
-}
+
+//void ADC_Select_Channel(uint32_t ch) {
+//    ADC_ChannelConfTypeDef conf = {
+//        .Channel = ch,
+//        .Rank = 1,
+//        .SamplingTime = ADC_SAMPLETIME_84CYCLES,
+//    };
+//    if (HAL_ADC_ConfigChannel(&hadc1, &conf) != HAL_OK) {
+//        Error_Handler();
+//    }
+//}
 
 
 
@@ -162,7 +163,7 @@ int main(void)
   MX_I2C1_Init();
   touch_init();
 
-  HAL_TIM_Base_Start_IT(&htim4);
+ // HAL_TIM_Base_Start_IT(&htim4);
 
   HAL_GPIO_WritePin(OE_GPIO_Port, OE_Pin, GPIO_PIN_RESET); //on mux
   HAL_GPIO_WritePin(S1_GPIO_Port, S1_Pin, GPIO_PIN_RESET);
@@ -177,10 +178,7 @@ int main(void)
    uint16_t conduct1 = 0;
    uint16_t conduct2 = 0;
    uint16_t conduct_avg = 0;
-   uint8_t gl_id = 0;
-   uint8_t id_changed_by_touch = 0;
-   uint16_t touch_accel_to_disp = 0;
-   uint8_t id_to_displ_fast_scroll = 0;
+
 //   touch_init();
   /* USER CODE END 2 */
 
@@ -194,29 +192,16 @@ int main(void)
 
 	  MPR121_setregister(MHD_R,0x01);
 	  page_select();
-
+	  //display_all_measuring_process_and_led(100, 3);
 	 // display_selected_product(gl_id_to_display);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -891,44 +876,8 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void display_all_measuring_process_and_led(uint16_t measured_value, uint8_t id)
-{
 
-	  if(gl_led_pwm_state==LED_PWM_CCR_STABLE)
-	  {
-		  SPI_Flash_to_LCD(LOADING_1,28,14);
-		  SPI_Flash_to_LCD(LOADING_2,80,14);
-		  SPI_Flash_to_LCD(LOADING_3,28,14);
-		  SPI_Flash_to_LCD(LOADING_2,28,14);
-		  SPI_Flash_to_LCD(LOADING_1,80,14);
-		  SPI_Flash_to_LCD(LOADING_3,80,14);
-	  }
-	  if(gl_led_pwm_state ==  LED_PWM_CCR_STABLE)
-	  {
-		  led_accumulation();
-	  }
-	  else if(gl_led_pwm_state ==  LED_PWM_CCR_CHANGEBALE && led_1hz_counter && gl_led_color_result_blink_counter <= 3 && !gl_loading_bar_stop_flag )
-	  {
 
-		  ST7735_FillScreen(ST7735_BLACK);
-		  HAL_TIM_Base_Start_IT(&htim2);
-
-		  uint8_t load_bar_index = (conduct_acidity_loading_bar_calculation(product_array[id].conductivity, product_array[id].temperature_coeff, measured_value));
-		  uint8_t result_status = display_loading_status(load_bar_index, product_array[id].id);
-
-		  display_measuring_product(product_array[id].addr_block_S, product_array[id].addr_offset_S, HORIZ_AFTER_MEASURING);
-		  display_measuring_text(product_array[id].name , product_array[id].conductivity, measured_value, result_status, ENGLISH);
-		  led_measuring_results_reflection(result_status);
-		  gl_loading_bar_stop_flag = 1;
-	  }
-	  else if (gl_led_color_result_blink_counter > 3)
-	  {
-		  HAL_TIM_Base_Stop_IT(&htim2);
-		  led_off();
-		  HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_3);
-		  TIM2->CCR3 = 0;
-	  }
-}
 
 /* USER CODE END 4 */
 

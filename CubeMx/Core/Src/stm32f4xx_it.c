@@ -262,21 +262,18 @@ void TIM1_UP_TIM10_IRQHandler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-	if(gl_touch_accel)
-	{
-		gl_touch_accel_inc++;
-	}
-	if(gl_touch_change_id)
-	{
-		gl_touch_change_id++;
-		HAL_GPIO_WritePin(VIBRO_GPIO_Port, VIBRO_Pin, GPIO_PIN_SET);
-		if(gl_touch_change_id == 70)
-		{
-			HAL_GPIO_WritePin(VIBRO_GPIO_Port, VIBRO_Pin, GPIO_PIN_RESET);
-			gl_touch_change_id = 0;
-			//HAL_TIM_Base_Stop_IT(&htim2);
-		}
-	}
+
+//	if(gl_touch_change_id)
+//	{
+//		gl_touch_change_id++;
+//		HAL_GPIO_WritePin(VIBRO_GPIO_Port, VIBRO_Pin, GPIO_PIN_SET);
+//		if(gl_touch_change_id == 70)
+//		{
+//			HAL_GPIO_WritePin(VIBRO_GPIO_Port, VIBRO_Pin, GPIO_PIN_RESET);
+//			gl_touch_change_id = 0;
+//			//HAL_TIM_Base_Stop_IT(&htim2);
+//		}
+//	}
 
 	gl_counter_1000hz_tim2++;
 	gl_selected_pause++;

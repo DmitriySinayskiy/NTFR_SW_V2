@@ -11,13 +11,13 @@ enum PAGE page;
 
 
 
-uint8_t current_page = SELECT_PRODUCT_LIST_PAGE;
+uint16_t current_page = SELECT_PRODUCT_LIST_PAGE;
 
 // pga_ функция содержащая все действия на странице
 void page_select()
 {
-	uint8_t page = page_select_by_button();
-	page_action(page);
+	page_select_by_button();
+	page_action(current_page);
 }
 
 int page_select_by_button()
@@ -26,14 +26,28 @@ int page_select_by_button()
 	{
 		but_state_reset();
 		current_page = DISPLAY_PRODUCT_NORM_PAGE;
-		return current_page;
+		//return DISPLAY_PRODUCT_NORM_PAGE;
 	}
 	else if(current_page == DISPLAY_PRODUCT_NORM_PAGE && but_state_left == BUT_LONG)
 	{
 		but_state_reset();
 		current_page = SELECT_PRODUCT_LIST_PAGE;
+		//return SELECT_PRODUCT_LIST_PAGE;
+	}
+	else if(current_page == DISPLAY_PRODUCT_NORM_PAGE && gl_product_detect)
+	{
+		gl_product_detect = 0;
+		but_state_reset();
+		current_page = MEASURING_PROCESS_PAGE;
+
+	}
+	else if(current_page == MEASURING_PROCESS_PAGE && but_state_right == BUT_LONG)
+	{
+		but_state_reset();
+		current_page = SELECT_PRODUCT_LIST_PAGE;
 		return current_page;
 	}
+
 }
 
 void page_action(uint8_t page)
@@ -43,13 +57,22 @@ void page_action(uint8_t page)
 		case SELECT_PRODUCT_LIST_PAGE:
 			select_product_list_action();
 			prod_sel_flag.sub_norm = 0;
+			gl_led_pwm_state = LED_PWM_CCR_STABLE;
+			led_off();
 		break;
 
 		case DISPLAY_PRODUCT_NORM_PAGE:
-			display_product_norm(gl_id_to_display, ENGLISH);
+			display_norm_action();
 			prod_sel_flag.root = 0;
+			prod_sel_flag.sub_sub_meas_process = 0;
+
 		break;
 
+		case MEASURING_PROCESS_PAGE:
+			measuring_process();
+			prod_sel_flag.sub_norm = 0;
+			prod_sel_flag.root = 0;
+		break;
 	}//default:
 
 }

@@ -24,6 +24,9 @@
 #define VERT_AFTER_MEASURING
 #define VERT_BEFORE_MEASURING
 
+#define MEAS_AMOUNT 9
+#define CONTACT_GROUP_AMOUNT 3
+
 void led_off();
 void led_all_on();
 void led_accumulation();
@@ -35,6 +38,12 @@ void display_measuring_product(const uint8_t block, const uint16_t offset, uint8
 void display_measuring_text(char*name , uint16_t reference_value, uint16_t measured_value, uint8_t status, uint8_t language);
 void display_product_norm(uint8_t id, uint8_t language);
 void display_all_measuring_process_and_led(uint16_t measured_value, uint8_t id);
+void measuring_process();
+void display_norm_action();
+
+void probe_contact_group_select(uint8_t meas_counter);
+int adc_probe_polling();
+
 
 
 

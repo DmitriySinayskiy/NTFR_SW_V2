@@ -10,7 +10,7 @@
 uint16_t gl_selected_pause = 0;
 uint8_t gl_selected_flag = 1;
 
-product_select_flag_struct prod_sel_flag;
+product_page_flags prod_sel_flag;
 
 
 void select_product_list_action()
@@ -29,9 +29,6 @@ int select_product_id(uint8_t id)
 	//Select product using buttons
 	 if(but_state_right == BUT_SHORT)
 		  {
-//		 	 HAL_GPIO_WritePin(VIBRO_GPIO_Port, VIBRO_Pin, GPIO_PIN_SET);
-//		 	 HAL_Delay(42);
-//		 	 HAL_GPIO_WritePin(VIBRO_GPIO_Port, VIBRO_Pin, GPIO_PIN_RESET);
 			  if(id<60){
 
 				  id++;
@@ -40,17 +37,12 @@ int select_product_id(uint8_t id)
 			  {
 				  id = 0;
 			  }
-			 //gl_selected_flag = 1;
-			  //gl_selected_pause = 0;
-			  //gl_selected_pause = 1;
 			  but_state_reset();
 
 		  }
 		  else if(but_state_left==BUT_SHORT)
 		  {
-			 // HAL_GPIO_WritePin(VIBRO_GPIO_Port, VIBRO_Pin, GPIO_PIN_SET);
-		//	  HAL_Delay(42);
-		//	  HAL_GPIO_WritePin(VIBRO_GPIO_Port, VIBRO_Pin, GPIO_PIN_RESET);
+
 			  if(id>0)
 			  {
 				  id--;
@@ -59,13 +51,8 @@ int select_product_id(uint8_t id)
 			  {
 				  id = 60;
 			  }
-			  //gl_selected_flag = 1;
-			  //gl_selected_pause = 0;
-			 // gl_selected_pause = 1;
 			  but_state_reset();
 		  }
-	 //Select product using touch slider sensor
-
 	 return id;
 }
 

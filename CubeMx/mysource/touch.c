@@ -23,7 +23,7 @@ int MPR121_readregister(uint16_t regaddress, uint8_t value)
 
 void touch_slider()
 {
-	HAL_TIM_Base_Start_IT(&htim2);
+	//HAL_TIM_Base_Start_IT(&htim2);
 		  		uint8_t j= 0x04;
 		  		for(int i = 0;i<5;i++)
 		  		{

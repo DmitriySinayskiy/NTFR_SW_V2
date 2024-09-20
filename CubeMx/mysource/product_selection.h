@@ -26,10 +26,16 @@ typedef struct
 	uint8_t sub_norm;
 	uint8_t sub_history;
 	uint8_t sub_rate;
-	uint8_t sub_favorite;
-} product_select_flag_struct;
+	uint8_t sub_fav;
 
-extern product_select_flag_struct prod_sel_flag;
+	uint8_t sub_sub_meas_process;
+	uint8_t sub_sub_history;
+	uint8_t sub_sub_rate;
+	uint8_t sub_sub_fav;
+
+} product_page_flags;
+
+extern product_page_flags prod_sel_flag;
 
 
 #endif /* PRODUCT_SELECTION_H_ */
