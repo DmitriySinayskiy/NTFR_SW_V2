@@ -1,3 +1,2 @@
-../mysource/product_selection.c:16:6:select_product_list_action	8	static
-../mysource/product_selection.c:27:5:select_product_id	16	static
-../mysource/product_selection.c:72:6:display_selected_product	32	static
+../mysource/product_selection.c:14:5:select_product_id	16	static
+../mysource/product_selection.c:59:6:display_selected_product	32	static

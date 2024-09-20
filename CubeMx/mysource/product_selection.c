@@ -6,23 +6,10 @@
  */
 #include "product_selection.h"
 
-//uint8_t gl_selected_id = 55;
+uint8_t gl_selected_id = 55;
 uint16_t gl_selected_pause = 0;
 uint8_t gl_selected_flag = 1;
 
-product_select_flag_struct prod_sel_flag;
-
-
-void select_product_list_action()
-{
-	if(touch_irq){
-
-		touch_slider();
-	}
-
-	 gl_id_to_display  = select_product_id(gl_id_to_display);
-	 display_selected_product(gl_id_to_display);
-}
 
 int select_product_id(uint8_t id)
 {
@@ -40,8 +27,8 @@ int select_product_id(uint8_t id)
 			  {
 				  id = 0;
 			  }
-			 //gl_selected_flag = 1;
-			  //gl_selected_pause = 0;
+			  gl_selected_flag = 1;
+			  gl_selected_pause = 0;
 			  //gl_selected_pause = 1;
 			  but_state_reset();
 
@@ -59,8 +46,8 @@ int select_product_id(uint8_t id)
 			  {
 				  id = 60;
 			  }
-			  //gl_selected_flag = 1;
-			  //gl_selected_pause = 0;
+			  gl_selected_flag = 1;
+			  gl_selected_pause = 0;
 			 // gl_selected_pause = 1;
 			  but_state_reset();
 		  }
@@ -72,11 +59,6 @@ int select_product_id(uint8_t id)
 void display_selected_product(uint8_t id)
 {
 
-	if(prod_sel_flag.root == 0)
-	{
-		prod_sel_flag.root = 1;
-		ST7735_FillScreen(ST7735_BLACK);
-	}
 	ST7735_WriteString(50, 2,  product_array[id].name, Font_11x18, ST7735_WHITE, ST7735_BLACK);
 	if(id == 0)
 	{

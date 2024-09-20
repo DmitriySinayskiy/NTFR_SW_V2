@@ -12,7 +12,6 @@ uint8_t gl_loading_bar_stop_flag = 0;
 
 
 
-
 void led_off()
 {
 	//HAL_GPIO_WritePin(LED_ANOD_GPIO_Port, LED_ANOD_Pin, GPIO_PIN_RESET);
@@ -305,11 +304,6 @@ void display_measuring_product(const uint8_t block, const uint16_t offset, uint8
 
 void display_product_norm(uint8_t id, uint8_t language)
 {
-	if(prod_sel_flag.sub_norm == 0)
-	{
-		prod_sel_flag.sub_norm = 1;
-		ST7735_FillScreen(ST7735_BLACK);
-	}
 	char char_buffer[5] = {};
 	sprintf(char_buffer, "%d", product_array[id].conductivity );
 

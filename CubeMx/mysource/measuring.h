@@ -38,5 +38,4 @@ void display_all_measuring_process_and_led(uint16_t measured_value, uint8_t id);
 
 
 
-
 #endif /* MEASURING_H_ */

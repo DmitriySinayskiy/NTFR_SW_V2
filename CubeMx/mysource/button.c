@@ -1,12 +1,12 @@
 /*
  * button.c
  *
- *  Created on: Sep 19, 2024
+ *  Created on: Sep 20, 2024
  *      Author: user
  */
-
-
 #include "button.h"
+
+void button_state_determ();
 
 uint8_t but_state_left = BUT_RESET;
 uint8_t but_state_right = BUT_RESET;

@@ -11,22 +11,20 @@
 #include "allmyheaders.h"
 
 enum PAGE {
-	SELECT_PRODUCT_LIST_PAGE = 1,
-	DISPLAY_PRODUCT_NORM_PAGE,
+	SELECT_PRODUCT_LIST_PAGE,
+	SELECT_PRODUCT_NORM_PAGE,
 	MEASURING_PROCESS_PAGE
 };
 
 
+typedef struct
+{
+	uint8_t select_product_list;
+	uint8_t select_product_norm;
 
+}flag;
 
 extern enum PAGE page;
-
-
-void page_action(uint8_t page);
-void page_select();
-int page_select_by_button();
-
-
-void SPI_Flash_to_LCD(uint16_t block, uint32_t offset, uint16_t w, uint16_t h, uint16_t x, uint16_t y);
+extern flag page_flag;
 
 #endif /* PAGE_SELECT_H_ */

@@ -80,9 +80,41 @@ static void MX_TIM1_Init(void);
 /* USER CODE BEGIN 0 */
 
 uint8_t touch_irq = 0;
+//uint8_t buffread[4]={};
+//uint8_t but_state_left = BUT_RESET;
+//uint8_t but_state_right = BUT_RESET;
+//uint8_t short_state_l = 0;
+//uint8_t long_state_l = 0;
+//uint32_t time_key_l = 0;
+//uint8_t short_state_r = 0;
+//uint8_t long_state_r = 0;
+//uint32_t time_key_r = 0;
+//uint8_t but_flag_ext = 0 ;
 
+
+
+uint16_t chipid = 0x5B;
+ uint16_t regmemadd = 0x2B;
+ uint16_t regmemadd_size = 2;
+ uint8_t buf[1] = {0x0};
+ uint8_t bufbyte = 0x13;
+ uint8_t bufr[1] = {0,0};
+ //uint8_t test1 = 0x00;
+
+// uint8_t touch_set = 0;
+// uint8_t touch_end_flag = 0;
+// uint8_t ON_status = 1;
+// int8_t first_touch = -1;
+ //int8_t second_touch = -1;
+ //uint8_t touch_direction = 0; //1 -up ,2-down
+// uint8_t false_click_scrolling = 0;
+// uint8_t touch_thrsh[5] = {THRESH_EL0-3, THRESH_EL1-3, THRESH_EL2-3, THRESH_EL3-3, THRESH_EL4-3};
+ //uint8_t left_treshold = 0;
+// uint8_t right_treshold = 0;
+
+ //uint16_t test_inc = 1000;
  uint8_t gl_id_to_display = 0;
-
+ //TIM3->CCR3 = 50;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 
@@ -91,6 +123,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 		touch_irq = 1;
 	}
 }
+
 
 
 void ADC_Select_Channel(uint32_t ch) {
@@ -103,6 +136,81 @@ void ADC_Select_Channel(uint32_t ch) {
         Error_Handler();
     }
 }
+void SPI_Flash_to_LCD(uint16_t block, uint32_t offset, uint16_t w, uint16_t h, uint16_t x, uint16_t y)
+
+{
+	uint32_t img_byte_amount = w*h*2;
+	uint16_t img_buffer[img_byte_amount/2];
+	W25qxx_ReadBlock(img_buffer, block, offset, img_byte_amount);
+	ST7735_DrawImage(x, y, w, h, img_buffer);
+}
+
+//void button_state_determ()
+//{
+//
+//		  uint32_t ms = HAL_GetTick();
+//		  uint8_t key_state_l = HAL_GPIO_ReadPin(BUT_0_GPIO_Port, BUT_0_Pin);
+//
+//		  if(key_state_l == 1 && !short_state_l && (ms - time_key_l) > 50)
+//		  {
+//		    short_state_l = 1;
+//		    long_state_l = 0;
+//		    time_key_l = ms;
+//		  }
+//		  else if(key_state_l == 1 && !long_state_l && (ms - time_key_l) > 700)
+//		  {
+//
+//		    long_state_l = 1;
+//		    but_state_left = BUT_LONG;
+//		   // sleep_counter = 0;
+//		  }
+//		  else if(key_state_l == 0 && short_state_l && (ms - time_key_l) > 50)
+//		  {
+//		    short_state_l = 0;
+//		    time_key_l = ms;
+//
+//		    if(!long_state_l)
+//		    {
+//		      // левая кнопка , действие на короткое нажатие
+//		    	but_state_left = BUT_SHORT;
+//		    	//sleep_counter = 0;
+//		    }
+//		  }
+//	          ms = HAL_GetTick();
+//		  	  uint8_t key_state_r = HAL_GPIO_ReadPin(BUT_1_GPIO_Port, BUT_1_Pin);
+//
+//		  	  if(key_state_r == 1 && !short_state_r && (ms - time_key_r) > 50)
+//		  	  {
+//		  	    short_state_r = 1;
+//		  	    long_state_r = 0;
+//		  	    time_key_r = ms;
+//		  	  }
+//		  	  else if(key_state_r == 1 && !long_state_r && (ms - time_key_r) > 700)
+//		  	  {
+//		  		// левая кнопка , действие на длительное нажатие
+//		  		but_state_right = BUT_LONG;
+//		  		long_state_r = 1;
+//		  		//sleep_counter = 0;
+//		  	  }
+//		  	  else if(key_state_r == 0 && short_state_r && (ms - time_key_r) > 50)
+//		  	  {
+//		  	    short_state_r = 0;
+//		  	    time_key_r = ms;
+//
+//		  	 if(!long_state_r)
+//		  	    {
+//		  		 	 but_state_right = BUT_SHORT;
+//		  		 	 //sleep_counter = 0;
+//		  	    }
+//		  	  }
+//		  	 but_flag_ext = 0;
+//}
+//
+//void but_state_reset()
+//{
+//	    but_state_left = BUT_RESET;
+//	    but_state_right = BUT_RESET;
+//}
 
 
 
@@ -190,15 +298,18 @@ int main(void)
   {
 
 	  button_state_determ();
-	  //gl_id_to_display  = select_product_id(gl_id_to_display);
+	  gl_id_to_display  = select_product_id(gl_id_to_display);
 
-	  MPR121_setregister(MHD_R,0x01);
 	  page_select();
 
-	 // display_selected_product(gl_id_to_display);
+	  display_selected_product(gl_id_to_display);
 
+	  MPR121_setregister(MHD_R,0x01);
 
+	  if(touch_irq){
 
+		  touch_slider();
+	  }
 
 
 
