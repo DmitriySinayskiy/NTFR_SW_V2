@@ -29,6 +29,13 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Docs/Milerd Nitrate Tester Interaction Tree.pdf</name>
+			<type>1</type>
+			<location>C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/Docs/Milerd Nitrate Tester Interaction Tree.pdf</location>
+		</link>
+	</linkedResources>
 	<variableList>
 		<variable>
 			<name>ST7735_src</name>

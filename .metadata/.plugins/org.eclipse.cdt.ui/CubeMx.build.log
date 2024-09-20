@@ -1,79 +1,37 @@
-11:31:56 **** Incremental Build of configuration Debug for project CubeMx ****
+19:05:18 **** Incremental Build of configuration Debug for project CubeMx ****
 make -j16 all 
 arm-none-eabi-gcc "../mysource/page_select.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/page_select.d" -MT"mysource/page_select.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/page_select.o"
-arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.o"
-arm-none-eabi-gcc "../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.d" -MT"Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
-../mysource/page_select.c: In function 'page_select':
-../mysource/page_select.c:17:16: error: 'current_page' undeclared (first use in this function)
-   17 |         switch(current_page)
-      |                ^~~~~~~~~~~~
-../mysource/page_select.c:17:16: note: each undeclared identifier is reported only once for each function it appears in
-make: *** [mysource/subdir.mk:34: mysource/page_select.o] Error 1
-make: *** Waiting for unfinished jobs....
-../Core/Src/main.c:101:23: warning: excess elements in array initializer
-  101 |  uint8_t bufr[1] = {0,0};
-      |                       ^
-../Core/Src/main.c:101:23: note: (near initialization for 'bufr')
-../Core/Src/main.c: In function 'SPI_Flash_to_LCD':
-../Core/Src/main.c:144:26: warning: passing argument 1 of 'W25qxx_ReadBlock' from incompatible pointer type [-Wincompatible-pointer-types]
-  144 |         W25qxx_ReadBlock(img_buffer, block, offset, img_byte_amount);
+../mysource/page_select.c: In function 'SPI_Flash_to_LCD':
+../mysource/page_select.c:62:26: warning: passing argument 1 of 'W25qxx_ReadBlock' from incompatible pointer type [-Wincompatible-pointer-types]
+   62 |         W25qxx_ReadBlock(img_buffer, block, offset, img_byte_amount);
       |                          ^~~~~~~~~~
       |                          |
       |                          uint16_t * {aka short unsigned int *}
-In file included from C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/allmyheaders.h:23,
-                 from ../Core/Src/main.c:25:
+In file included from ../mysource/allmyheaders.h:23,
+                 from ../mysource/page_select.h:11,
+                 from ../mysource/page_select.c:8:
 C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx/w25qxx.h:105:40: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
   105 |         void W25qxx_ReadBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_BlockSize);
       |                               ~~~~~~~~~^~~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:300:11: warning: implicit declaration of function 'button_state_determ' [-Wimplicit-function-declaration]
-  300 |           button_state_determ();
-      |           ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:303:11: warning: implicit declaration of function 'page_select' [-Wimplicit-function-declaration]
-  303 |           page_select();
-      |           ^~~~~~~~~~~
-../Core/Src/main.c:392:19: warning: implicit declaration of function 'but_state_reset' [-Wimplicit-function-declaration]
-  392 |                   but_state_reset();
-      |                   ^~~~~~~~~~~~~~~
-../Core/Src/main.c:291:12: warning: unused variable 'id_to_displ_fast_scroll' [-Wunused-variable]
-  291 |    uint8_t id_to_displ_fast_scroll = 0;
-      |            ^~~~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:290:13: warning: unused variable 'touch_accel_to_disp' [-Wunused-variable]
-  290 |    uint16_t touch_accel_to_disp = 0;
-      |             ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:289:12: warning: unused variable 'id_changed_by_touch' [-Wunused-variable]
-  289 |    uint8_t id_changed_by_touch = 0;
-      |            ^~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:288:12: warning: unused variable 'gl_id' [-Wunused-variable]
-  288 |    uint8_t gl_id = 0;
-      |            ^~~~~
-../Core/Src/main.c:287:13: warning: unused variable 'conduct_avg' [-Wunused-variable]
-  287 |    uint16_t conduct_avg = 0;
-      |             ^~~~~~~~~~~
-../Core/Src/main.c:286:13: warning: unused variable 'conduct2' [-Wunused-variable]
-  286 |    uint16_t conduct2 = 0;
-      |             ^~~~~~~~
-../Core/Src/main.c:285:13: warning: unused variable 'conduct1' [-Wunused-variable]
-  285 |    uint16_t conduct1 = 0;
-      |             ^~~~~~~~
-../Core/Src/main.c:284:13: warning: unused variable 'conduct0' [-Wunused-variable]
-  284 |    uint16_t conduct0 = 0;
-      |             ^~~~~~~~
-../Core/Src/main.c:282:8: warning: unused variable 'char_buffer' [-Wunused-variable]
-  282 |   char char_buffer[10];
-      |        ^~~~~~~~~~~
-../Core/Src/main.c: In function 'display_all_measuring_process_and_led':
-../Core/Src/main.c:1031:59: warning: passing argument 1 of 'display_measuring_text' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
- 1031 |                   display_measuring_text(product_array[id].name , product_array[id].conductivity, measured_value, result_status, ENGLISH);
-      |                                          ~~~~~~~~~~~~~~~~~^~~~~
-In file included from C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/allmyheaders.h:14:
-C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource/measuring.h:35:34: note: expected 'char *' but argument is of type 'const char *'
-   35 | void display_measuring_text(char*name , uint16_t reference_value, uint16_t measured_value, uint8_t status, uint8_t language);
-      |                             ~~~~~^~~~
-"make -j16 all" terminated with exit code 2. Build might be incomplete.
+../mysource/page_select.c: In function 'page_select_by_button':
+../mysource/page_select.c:37:1: warning: control reaches end of non-void function [-Wreturn-type]
+   37 | }
+      | ^
+arm-none-eabi-gcc -o "CubeMx.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\Documents\GIT_WORKSPACE\NTFR_SW_V2\CubeMx\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CubeMx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CubeMx.elf has a LOAD segment with RWX permissions
+Finished building target: CubeMx.elf
+ 
+arm-none-eabi-size  CubeMx.elf 
+arm-none-eabi-objdump -h -S CubeMx.elf  > "CubeMx.list"
+arm-none-eabi-objcopy  -O ihex CubeMx.elf  "CubeMx.hex"
+   text	   data	    bss	    dec	    hex	filename
+  61032	   1580	   7892	  70504	  11368	CubeMx.elf
+Finished building: default.size.stdout
+ 
+Finished building: CubeMx.hex
+ 
+Finished building: CubeMx.list
+ 
 
-11:31:57 Build Failed. 3 errors, 15 warnings. (took 661ms)
+19:05:19 Build Finished. 0 errors, 3 warnings. (took 856ms)
 

@@ -1,0 +1,4 @@
+../mysource/page_select.c:17:6:page_select	1
+../mysource/page_select.c:23:5:page_select_by_button	5
+../mysource/page_select.c:39:6:page_action	3
+../mysource/page_select.c:57:6:SPI_Flash_to_LCD	1
