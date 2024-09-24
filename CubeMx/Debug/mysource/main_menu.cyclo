@@ -1,0 +1,6 @@
+../mysource/main_menu.c:11:13:main_menu_probe_flag	1
+../mysource/main_menu.c:18:13:main_menu_settings_flag	1
+../mysource/main_menu.c:26:13:main_menu_info_flag	1
+../mysource/main_menu.c:35:6:main_menu_probe_action	5
+../mysource/main_menu.c:65:6:main_menu_settings_action	5
+../mysource/main_menu.c:88:6:main_menu_info_action	2

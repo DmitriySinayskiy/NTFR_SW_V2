@@ -26,13 +26,13 @@ int page_select_by_button()
 	{
 		but_state_reset();
 		current_page = DISPLAY_PRODUCT_NORM_PAGE;
-		//return DISPLAY_PRODUCT_NORM_PAGE;
+
 	}
 	else if(current_page == DISPLAY_PRODUCT_NORM_PAGE && but_state_left == BUT_LONG)
 	{
 		but_state_reset();
 		current_page = SELECT_PRODUCT_LIST_PAGE;
-		//return SELECT_PRODUCT_LIST_PAGE;
+
 	}
 	else if(current_page == DISPLAY_PRODUCT_NORM_PAGE && gl_product_detect)
 	{
@@ -45,9 +45,39 @@ int page_select_by_button()
 	{
 		but_state_reset();
 		current_page = SELECT_PRODUCT_LIST_PAGE;
-		return current_page;
 	}
-
+	else if(current_page == SELECT_PRODUCT_LIST_PAGE && but_state_left == BUT_LONG)
+	{
+		but_state_reset();
+		current_page = MAIN_MENU_PROBE;
+	}
+	else if(current_page == MAIN_MENU_PROBE && but_state_right == BUT_SHORT)
+		{
+			but_state_reset();
+			menu_flag.last_page = current_page;
+			current_page = MAIN_MENU_SETTINGS;
+		}
+	else if(current_page == MAIN_MENU_SETTINGS)
+	{
+		if(but_state_right == BUT_SHORT)
+		{
+			but_state_reset();
+			menu_flag.last_page = current_page;
+			current_page = MAIN_MENU_INFO;
+		}
+		else if(but_state_left == BUT_SHORT)
+		{
+			but_state_reset();
+			menu_flag.last_page = current_page;
+			current_page = MAIN_MENU_PROBE;
+		}
+	}
+	else if(current_page == MAIN_MENU_INFO && but_state_left == BUT_SHORT)
+	{
+		but_state_reset();
+		menu_flag.last_page = current_page;
+		current_page = MAIN_MENU_SETTINGS;
+	}
 }
 
 void page_action(uint8_t page)
@@ -57,6 +87,11 @@ void page_action(uint8_t page)
 		case SELECT_PRODUCT_LIST_PAGE:
 			select_product_list_action();
 			prod_sel_flag.sub_norm = 0;
+			prod_sel_flag.sub_sub_meas_process = 0;
+			gl_loading_bar_stop_flag = 0;
+			gl_led_color_result_blink_counter = 0;
+			gl_loading_bar_stop_flag = 0 ;
+			gl_led_increment = 0;
 			gl_led_pwm_state = LED_PWM_CCR_STABLE;
 			led_off();
 		break;
@@ -72,6 +107,18 @@ void page_action(uint8_t page)
 			measuring_process();
 			prod_sel_flag.sub_norm = 0;
 			prod_sel_flag.root = 0;
+		break;
+
+		case MAIN_MENU_PROBE :
+			main_menu_probe_action();
+		break;
+
+		case MAIN_MENU_SETTINGS :
+			main_menu_settings_action();
+		break;
+
+		case MAIN_MENU_INFO :
+			main_menu_info_action();
 		break;
 	}//default:
 

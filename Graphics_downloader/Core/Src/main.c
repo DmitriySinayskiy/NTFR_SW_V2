@@ -191,100 +191,109 @@ int main(void)
 /////// FIRMWARE 1
 
 
-//  W25qxx_EraseBlock(5);
-//  W25qxx_WriteBlock(L17_data, 5, 0, 4232);
-//  W25qxx_WriteBlock(L18_data, 5, 4232, 4232);
-//  W25qxx_WriteBlock(L19_data, 5, 4232*2, 4232);
-//  W25qxx_WriteBlock(L20_data, 5, 4232*3, 4232);
-//  W25qxx_WriteBlock(L21_data, 5, 4232*4, 4232);
-//  W25qxx_WriteBlock(L22_data, 5, 4232*5, 4232);
-//  W25qxx_WriteBlock(L23_data, 5, 4232*6, 4232);
-//  W25qxx_WriteBlock(L24_data, 5, 4232*7, 4232);
-//  W25qxx_WriteBlock(L25_data, 5, 4232*8, 4232);
-//  W25qxx_WriteBlock(L26_data, 5, 4232*9, 4232);
-//  W25qxx_WriteBlock(L27_data, 5, 4232*10, 4232);
-//  W25qxx_WriteBlock(L28_data, 5, 4232*11, 4232);
-//  W25qxx_WriteBlock(L29_data, 5, 4232*12, 4232);
-//  W25qxx_WriteBlock(L30_data, 5, 4232*13, 4232);
-//  W25qxx_WriteBlock(L31_data, 5, 4232*14, 4232);
-//
-//  W25qxx_EraseBlock(6);
-//  W25qxx_WriteBlock(L32_data, 6, 0, 4232);
-//  W25qxx_WriteBlock(L33_data, 6, 4232, 4232);
-//  W25qxx_WriteBlock(L34_data, 6, 4232*2, 4232);
-//  W25qxx_WriteBlock(L35_data, 6, 4232*3, 4232);
-//  W25qxx_WriteBlock(L36_data, 6, 4232*4, 4232);
-//  W25qxx_WriteBlock(L37_data, 6, 4232*5, 4232);
-//  W25qxx_WriteBlock(L38_data, 6, 4232*6, 4232);
-//  W25qxx_WriteBlock(L39_data, 6, 4232*7, 4232);
-//  W25qxx_WriteBlock(L40_data, 6, 4232*8, 4232);
-//  W25qxx_WriteBlock(L41_data, 6, 4232*9, 4232);
-//  W25qxx_WriteBlock(L42_data, 6, 4232*10, 4232);
-//  W25qxx_WriteBlock(L43_data, 6, 4232*11, 4232);
-//  W25qxx_WriteBlock(L44_data, 6, 4232*12, 4232);
-//  W25qxx_WriteBlock(L45_data, 6, 4232*13, 4232);
-//  W25qxx_WriteBlock(L46_data, 6, 4232*14, 4232);
-//
-//  W25qxx_EraseBlock(7);
-//  W25qxx_WriteBlock(L47_data, 7, 0, 4232);
-//  W25qxx_WriteBlock(L48_data, 7, 4232, 4232);
-//  W25qxx_WriteBlock(L49_data, 7, 4232*2, 4232);
-//  W25qxx_WriteBlock(L50_data, 7, 4232*3, 4232);
-//  W25qxx_WriteBlock(L51_data, 7, 4232*4, 4232);
-//  W25qxx_WriteBlock(L52_data, 7, 4232*5, 4232);
-//  W25qxx_WriteBlock(L53_data, 7, 4232*6, 4232);
-//  W25qxx_WriteBlock(L54_data, 7, 4232*7, 4232);
-//  W25qxx_WriteBlock(L55_data, 7, 4232*8, 4232);
-//  W25qxx_WriteBlock(L56_data, 7, 4232*9, 4232);
-//  W25qxx_WriteBlock(L57_data, 7, 4232*10, 4232);
-//  W25qxx_WriteBlock(L58_data, 7, 4232*11, 4232);
-//  W25qxx_WriteBlock(L59_data, 7, 4232*12, 4232);
-//  W25qxx_WriteBlock(L60_data, 7, 4232*13, 4232);
-//  W25qxx_WriteBlock(L61_data, 7, 4232*14, 4232);
-//
-//  W25qxx_EraseBlock(8);
-//  W25qxx_WriteBlock(LOADING_1_data, 8, 0, 5408 );
-//  W25qxx_WriteBlock(LOADING_2_data, 8, 5408, 5408 );
-//  W25qxx_WriteBlock(LOADING_3_data, 8, 10816, 5408 );
-//  W25qxx_WriteBlock(LOAD_0_data, 8, 16224, 1800 );
-//  W25qxx_WriteBlock(LOAD_10_data, 8, 16224 + 1800*1, 1800 );
-//  W25qxx_WriteBlock(LOAD_20_data, 8, 16224 + 1800*2, 1800 );
-//  W25qxx_WriteBlock(LOAD_30_data, 8, 16224 + 1800*3, 1800 );
-//  W25qxx_WriteBlock(LOAD_40_data, 8, 16224 + 1800*4, 1800 );
-//  W25qxx_WriteBlock(LOAD_50_data, 8, 16224 + 1800*5, 1800 );
-//  W25qxx_WriteBlock(LOAD_60_data, 8, 16224 + 1800*6, 1800 );
-//  W25qxx_WriteBlock(LOAD_70_data, 8, 16224 + 1800*7, 1800 );
-//  W25qxx_WriteBlock(LOAD_80_data, 8, 16224 + 1800*8, 1800 );
-//  W25qxx_WriteBlock(LOAD_90_data, 8, 16224 + 1800*9, 1800 );
-//  W25qxx_WriteBlock(LOAD_100_data, 8, 16224 + 1800*10, 1800 );
-//  W25qxx_WriteBlock(LOAD_150_data, 8, 16224 + 1800*11, 1800 );
-//  W25qxx_WriteBlock(LOAD_200_data, 8, 16224 + 1800*12, 1800 );
-//
-//  W25qxx_WriteBlock(CHECK_MARK_M_data, 8,39774 , 1920 );
-//  W25qxx_WriteBlock(EXCLAMATION_MARK_M_data, 8,41664 , 1920 );
-//  W25qxx_WriteBlock(CROSS_MARK_M_data, 8,43584 , 1920 );
-//  W25qxx_WriteBlock(CHECK_MARK_L_data, 8,47104 , 3520 );
-//  W25qxx_WriteBlock(EXCLAMATION_MARK_L_data, 8,50624 , 3520 );
-//  W25qxx_WriteBlock(CROSS_MARK_L_data, 8,54144 , 3520 );
-//
-//  W25qxx_WriteBlock(ARROW_SUB_DARK_DOWN_data, 8,57664 , 90);
-//  W25qxx_WriteBlock(ARROW_SUB_DARK_LEFT_data, 8,57754 , 90);
-//  W25qxx_WriteBlock(ARROW_SUB_DARK_RIGHT_data, 8,57844 , 90);
-//  W25qxx_WriteBlock(ARROW_SUB_DARK_UP_data, 8,57934 , 90);
-//
-//  W25qxx_WriteBlock(ARROW_SUB_LIGHT_DOWN_data, 8,58024 , 90);
-//  W25qxx_WriteBlock(ARROW_SUB_LIGHT_LEFT_data, 8,58114 , 90);
-//  W25qxx_WriteBlock(ARROW_SUB_LIGHT_RIGHT_data, 8,58204 , 90);
-//  W25qxx_WriteBlock(ARROW_SUB_LIGHT_UP_data, 8,58294 , 90);
-//
-//  W25qxx_WriteBlock(FAVORITE_STAR_data, 8,58384 , 162);
-//  W25qxx_WriteBlock(ARROW_MAIN_DARK_RIGHT_data, 8,58546 , 224);
-//  W25qxx_WriteBlock(ARROW_MAIN_LIGHT_RIGHT_data, 8,58770 , 224);
+  W25qxx_EraseBlock(5);
+  W25qxx_WriteBlock(L17_data, 5, 0, 4232);
+  W25qxx_WriteBlock(L18_data, 5, 4232, 4232);
+  W25qxx_WriteBlock(L19_data, 5, 4232*2, 4232);
+  W25qxx_WriteBlock(L20_data, 5, 4232*3, 4232);
+  W25qxx_WriteBlock(L21_data, 5, 4232*4, 4232);
+  W25qxx_WriteBlock(L22_data, 5, 4232*5, 4232);
+  W25qxx_WriteBlock(L23_data, 5, 4232*6, 4232);
+  W25qxx_WriteBlock(L24_data, 5, 4232*7, 4232);
+  W25qxx_WriteBlock(L25_data, 5, 4232*8, 4232);
+  W25qxx_WriteBlock(L26_data, 5, 4232*9, 4232);
+  W25qxx_WriteBlock(L27_data, 5, 4232*10, 4232);
+  W25qxx_WriteBlock(L28_data, 5, 4232*11, 4232);
+  W25qxx_WriteBlock(L29_data, 5, 4232*12, 4232);
+  W25qxx_WriteBlock(L30_data, 5, 4232*13, 4232);
+  W25qxx_WriteBlock(L31_data, 5, 4232*14, 4232);
+
+  W25qxx_EraseBlock(6);
+  W25qxx_WriteBlock(L32_data, 6, 0, 4232);
+  W25qxx_WriteBlock(L33_data, 6, 4232, 4232);
+  W25qxx_WriteBlock(L34_data, 6, 4232*2, 4232);
+  W25qxx_WriteBlock(L35_data, 6, 4232*3, 4232);
+  W25qxx_WriteBlock(L36_data, 6, 4232*4, 4232);
+  W25qxx_WriteBlock(L37_data, 6, 4232*5, 4232);
+  W25qxx_WriteBlock(L38_data, 6, 4232*6, 4232);
+  W25qxx_WriteBlock(L39_data, 6, 4232*7, 4232);
+  W25qxx_WriteBlock(L40_data, 6, 4232*8, 4232);
+  W25qxx_WriteBlock(L41_data, 6, 4232*9, 4232);
+  W25qxx_WriteBlock(L42_data, 6, 4232*10, 4232);
+  W25qxx_WriteBlock(L43_data, 6, 4232*11, 4232);
+  W25qxx_WriteBlock(L44_data, 6, 4232*12, 4232);
+  W25qxx_WriteBlock(L45_data, 6, 4232*13, 4232);
+  W25qxx_WriteBlock(L46_data, 6, 4232*14, 4232);
+
+  W25qxx_EraseBlock(7);
+  W25qxx_WriteBlock(L47_data, 7, 0, 4232);
+  W25qxx_WriteBlock(L48_data, 7, 4232, 4232);
+  W25qxx_WriteBlock(L49_data, 7, 4232*2, 4232);
+  W25qxx_WriteBlock(L50_data, 7, 4232*3, 4232);
+  W25qxx_WriteBlock(L51_data, 7, 4232*4, 4232);
+  W25qxx_WriteBlock(L52_data, 7, 4232*5, 4232);
+  W25qxx_WriteBlock(L53_data, 7, 4232*6, 4232);
+  W25qxx_WriteBlock(L54_data, 7, 4232*7, 4232);
+  W25qxx_WriteBlock(L55_data, 7, 4232*8, 4232);
+  W25qxx_WriteBlock(L56_data, 7, 4232*9, 4232);
+  W25qxx_WriteBlock(L57_data, 7, 4232*10, 4232);
+  W25qxx_WriteBlock(L58_data, 7, 4232*11, 4232);
+  W25qxx_WriteBlock(L59_data, 7, 4232*12, 4232);
+  W25qxx_WriteBlock(L60_data, 7, 4232*13, 4232);
+  W25qxx_WriteBlock(L61_data, 7, 4232*14, 4232);
+
+  W25qxx_EraseBlock(8);
+  W25qxx_WriteBlock(LOADING_1_data, 8, 0, 5408 );
+  W25qxx_WriteBlock(LOADING_2_data, 8, 5408, 5408 );
+  W25qxx_WriteBlock(LOADING_3_data, 8, 10816, 5408 );
+  W25qxx_WriteBlock(LOAD_0_data, 8, 16224, 1800 );
+  W25qxx_WriteBlock(LOAD_10_data, 8, 16224 + 1800*1, 1800 );
+  W25qxx_WriteBlock(LOAD_20_data, 8, 16224 + 1800*2, 1800 );
+  W25qxx_WriteBlock(LOAD_30_data, 8, 16224 + 1800*3, 1800 );
+  W25qxx_WriteBlock(LOAD_40_data, 8, 16224 + 1800*4, 1800 );
+  W25qxx_WriteBlock(LOAD_50_data, 8, 16224 + 1800*5, 1800 );
+  W25qxx_WriteBlock(LOAD_60_data, 8, 16224 + 1800*6, 1800 );
+  W25qxx_WriteBlock(LOAD_70_data, 8, 16224 + 1800*7, 1800 );
+  W25qxx_WriteBlock(LOAD_80_data, 8, 16224 + 1800*8, 1800 );
+  W25qxx_WriteBlock(LOAD_90_data, 8, 16224 + 1800*9, 1800 );
+  W25qxx_WriteBlock(LOAD_100_data, 8, 16224 + 1800*10, 1800 );
+  W25qxx_WriteBlock(LOAD_150_data, 8, 16224 + 1800*11, 1800 );
+  W25qxx_WriteBlock(LOAD_200_data, 8, 16224 + 1800*12, 1800 );
+
+  W25qxx_WriteBlock(CHECK_MARK_M_data, 8,39774 , 1920 );
+  W25qxx_WriteBlock(EXCLAMATION_MARK_M_data, 8,41664 , 1920 );
+  W25qxx_WriteBlock(CROSS_MARK_M_data, 8,43584 , 1920 );
+  W25qxx_WriteBlock(CHECK_MARK_L_data, 8,47104 , 3520 );
+  W25qxx_WriteBlock(EXCLAMATION_MARK_L_data, 8,50624 , 3520 );
+  W25qxx_WriteBlock(CROSS_MARK_L_data, 8,54144 , 3520 );
+
+  W25qxx_WriteBlock(ARROW_SUB_DARK_DOWN_data, 8,57664 , 90);
+  W25qxx_WriteBlock(ARROW_SUB_DARK_LEFT_data, 8,57754 , 90);
+  W25qxx_WriteBlock(ARROW_SUB_DARK_RIGHT_data, 8,57844 , 90);
+  W25qxx_WriteBlock(ARROW_SUB_DARK_UP_data, 8,57934 , 90);
+
+  W25qxx_WriteBlock(ARROW_SUB_LIGHT_DOWN_data, 8,58024 , 90);
+  W25qxx_WriteBlock(ARROW_SUB_LIGHT_LEFT_data, 8,58114 , 90);
+  W25qxx_WriteBlock(ARROW_SUB_LIGHT_RIGHT_data, 8,58204 , 90);
+  W25qxx_WriteBlock(ARROW_SUB_LIGHT_UP_data, 8,58294 , 90);
+
+  W25qxx_WriteBlock(FAVORITE_STAR_data, 8,58384 , 162);
+
+  W25qxx_WriteBlock(ARROW_MAIN_DARK_RIGHT_data, 8,58546 , 224);
+  W25qxx_WriteBlock(ARROW_MAIN_LIGHT_RIGHT_data, 8,58770 , 224);
+  W25qxx_WriteBlock(ARROW_MAIN_DARK_LEFT_data, 8,58994 , 224);
+  W25qxx_WriteBlock(ARROW_MAIN_LIGHT_LEFT_data, 8,59218 , 224);
 
   //FIRMWARE 2
-  W25qxx_EraseBlock(9);
-  W25qxx_WriteBlock(NORM_RECTANGLE_data, 9, 0, 6384);
-
+//  W25qxx_EraseBlock(9);
+//  W25qxx_WriteBlock(NORM_RECTANGLE_data, 9, 0, 6384);
+//  W25qxx_WriteBlock(MAIN_DARK_INFO_HOR_data, 9, 6384, 3960);
+//  W25qxx_WriteBlock(MAIN_DARK_PROBE_HOR_data, 9, 10344, 3960);
+//  W25qxx_WriteBlock(MAIN_DARK_SETTINGS_HOR_data, 9, 14304, 3960);
+//  W25qxx_WriteBlock(MAIN_MENU_INFO_data, 9, 18264, 6050);
+//  W25qxx_WriteBlock(MAIN_MENU_NO3_data, 9, 24314, 6050);
+//  W25qxx_WriteBlock(MAIN_MENU_PH_data, 9, 30364, 6050);
+//  W25qxx_WriteBlock(MAIN_MENU_SETTINGS_data, 9, 36414, 6050);
   /* USER CODE END 2 */
 
   /* Infinite loop */

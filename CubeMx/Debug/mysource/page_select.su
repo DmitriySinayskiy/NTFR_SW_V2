@@ -1,4 +1,4 @@
 ../mysource/page_select.c:17:6:page_select	8	static
 ../mysource/page_select.c:23:5:page_select_by_button	8	static
-../mysource/page_select.c:53:6:page_action	16	static
-../mysource/page_select.c:80:6:SPI_Flash_to_LCD	72	dynamic
+../mysource/page_select.c:83:6:page_action	16	static
+../mysource/page_select.c:127:6:SPI_Flash_to_LCD	72	dynamic

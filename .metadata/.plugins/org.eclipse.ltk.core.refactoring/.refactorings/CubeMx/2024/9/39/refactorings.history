@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;CubeMx/mysource/main_menu_probe.c&apos; to &apos;main_menu.c&apos;" description="Rename resource &apos;main_menu_probe.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="mysource/main_menu_probe.c" name="main_menu.c" stamp="1727179599333" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;CubeMx/mysource/main_menu_probe.h&apos; to &apos;main_menu.h&apos;" description="Rename resource &apos;main_menu_probe.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="mysource/main_menu_probe.h" name="main_menu.h" stamp="1727179608172" updateReferences="true"/>
+</session>

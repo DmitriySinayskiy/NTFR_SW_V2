@@ -71,7 +71,7 @@ void display_selected_product(uint8_t id)
 		SPI_Flash_to_LCD(product_array[id+1].addr_block_S, product_array[id+1].addr_offset_S , RIGHT_PIC);
 		ST7735_FillRectangle(LEFT_PIC, ST7735_BLACK);
 
-		ST7735_FillRectangle(8, 2, 46+id, 75, ST7735_WHITE);// ползунок
+		ST7735_FillRectangle(8, 2, 46+id, 75, ST7735_WHITE); // ползунок
 		ST7735_FillRectangle(60,2, 46+8+id,75, ST7735_BG_DEF); // правый прямоугольник
 	}
 	else if(id>0 && id<60)

@@ -1,0 +1,31 @@
+/*
+ * main_menu_probe.h
+ *
+ *  Created on: Sep 24, 2024
+ *      Author: user
+ */
+
+#ifndef MAIN_MENU_PROBE_H_
+#define MAIN_MENU_PROBE_H_
+
+#include "allmyheaders.h"
+
+typedef struct
+{
+	uint8_t main_probe;
+	uint8_t sub_probe;
+
+	uint8_t main_settings;
+	uint8_t sub_settings_sleep;
+	uint8_t sub_settings_lang;
+
+	uint8_t main_info;
+	uint8_t sub_info;
+} menu_page_flag;
+
+extern menu_page_flag menu_flag;
+void main_menu_probe_action();
+
+#define MAIN_MENU_NO3 9, 24314, 55, 55, 15, 11
+
+#endif /* MAIN_MENU_PROBE_H_ */

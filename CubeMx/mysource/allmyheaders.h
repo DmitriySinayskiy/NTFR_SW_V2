@@ -16,6 +16,7 @@
 #include "product_selection.h"
 #include "page_select.h"
 #include "button.h"
+#include "main_menu.h"
 
 //other libs
 #include "images.h"
@@ -47,7 +48,7 @@ extern uint8_t gl_touch_change_id;
 extern uint16_t gl_touch_accel;
 extern uint8_t touch_irq;
 extern uint8_t gl_id_to_display;
-
+extern uint8_t gl_led_increment;
 extern uint16_t adc_probe_meas[9];
 
 

@@ -1,32 +1,10 @@
-16:15:01 **** Incremental Build of configuration Debug for project Graphics_downloader ****
+14:59:56 **** Incremental Build of configuration Debug for project Graphics_downloader ****
 make -j16 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/Graphics_downloader/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/Graphics_downloader/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/Graphics_downloader/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/Graphics_downloader/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:286:21: warning: passing argument 1 of 'W25qxx_WriteBlock' from incompatible pointer type [-Wincompatible-pointer-types]
-  286 |   W25qxx_WriteBlock(NORM_RECTANGLE_data, 9, 0, 6384);
-      |                     ^~~~~~~~~~~~~~~~~~~
-      |                     |
-      |                     const uint16_t * {aka const short unsigned int *}
-In file included from C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/Graphics_downloader/mysource/allmyheaders.h:18,
-                 from ../Core/Src/main.c:24:
-C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/Graphics_downloader/w25qxx/w25qxx.h:99:41: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'const uint16_t *' {aka 'const short unsigned int *'}
-   99 |         void W25qxx_WriteBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToWrite_up_to_BlockSize);
-      |                                ~~~~~~~~~^~~~~~~
-arm-none-eabi-gcc -o "Graphics_downloader.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\Documents\GIT_WORKSPACE\NTFR_SW_V2\Graphics_downloader\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Graphics_downloader.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: Graphics_downloader.elf has a LOAD segment with RWX permissions
-Finished building target: Graphics_downloader.elf
- 
 arm-none-eabi-size  Graphics_downloader.elf 
-arm-none-eabi-objdump -h -S Graphics_downloader.elf  > "Graphics_downloader.list"
-arm-none-eabi-objcopy  -O ihex Graphics_downloader.elf  "Graphics_downloader.hex"
    text	   data	    bss	    dec	    hex	filename
-  17924	     20	   1700	  19644	   4cbc	Graphics_downloader.elf
+ 261288	     20	   1700	 263008	  40360	Graphics_downloader.elf
 Finished building: default.size.stdout
  
-Finished building: Graphics_downloader.hex
- 
-Finished building: Graphics_downloader.list
- 
 
-16:15:02 Build Finished. 0 errors, 2 warnings. (took 609ms)
+14:59:56 Build Finished. 0 errors, 0 warnings. (took 205ms)
 

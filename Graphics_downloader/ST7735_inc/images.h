@@ -373,6 +373,17 @@ extern const uint16_t ARROW_SUB_LIGHT_UP_data[];
 extern const uint16_t FAVORITE_STAR_data[];
 extern const uint16_t NORM_RECTANGLE_data[];
 
+
+extern const uint16_t MAIN_DARK_INFO_HOR_data[];
+extern const uint16_t MAIN_DARK_PROBE_HOR_data[];
+extern const uint16_t MAIN_DARK_SETTINGS_HOR_data[];
+extern const uint16_t MAIN_MENU_INFO_data[];
+extern const uint16_t MAIN_MENU_NO3_data[];
+extern const uint16_t MAIN_MENU_PH_data[];
+extern const uint16_t MAIN_MENU_SETTINGS_data[];
+
+extern const uint16_t ARROW_MAIN_DARK_LEFT_data[];
+extern const uint16_t ARROW_MAIN_LIGHT_LEFT_data[];
 ///////NITRATE Картинки продуктов END//////////////////////////
 
 

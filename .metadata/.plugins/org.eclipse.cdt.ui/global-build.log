@@ -1,63 +1,6 @@
-18:16:20 **** Incremental Build of configuration Debug for project CubeMx ****
+16:44:15 **** Incremental Build of configuration Debug for project CubeMx ****
 make -j16 all 
-arm-none-eabi-gcc "../mysource/measuring.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/measuring.d" -MT"mysource/measuring.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/measuring.o"
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-../mysource/measuring.c: In function 'display_norm_action':
-../mysource/measuring.c:24:29: warning: implicit declaration of function 'adc_product_detect' [-Wimplicit-function-declaration]
-   24 |         gl_product_detect = adc_product_detect();
-      |                             ^~~~~~~~~~~~~~~~~~
-../mysource/measuring.c: In function 'display_all_measuring_process_and_led':
-../mysource/measuring.c:65:59: warning: passing argument 1 of 'display_measuring_text' discards 'const' qualifier from pointer target type [-Wdiscarded-qualifiers]
-   65 |                   display_measuring_text(product_array[id].name , product_array[id].conductivity, measured_value, result_status, ENGLISH);
-      |                                          ~~~~~~~~~~~~~~~~~^~~~~
-In file included from ../mysource/measuring.c:7:
-../mysource/measuring.h:38:34: note: expected 'char *' but argument is of type 'const char *'
-   38 | void display_measuring_text(char*name , uint16_t reference_value, uint16_t measured_value, uint8_t status, uint8_t language);
-      |                             ~~~~~^~~~
-../mysource/measuring.c: In function 'display_loading_status':
-../mysource/measuring.c:367:1: warning: control reaches end of non-void function [-Wreturn-type]
-  367 | }
-      | ^
-../mysource/measuring.c: In function 'adc_probe_polling':
-../mysource/measuring.c:507:1: warning: control reaches end of non-void function [-Wreturn-type]
-  507 | }
-      | ^
-../mysource/measuring.c: In function 'display_product_norm':
-../mysource/measuring.c:378:41: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
-  378 |                 sprintf(char_buffer, "%d", product_array[id].conductivity );
-      |                                         ^
-../mysource/measuring.c:378:17: note: 'sprintf' output between 2 and 6 bytes into a destination of size 5
-  378 |                 sprintf(char_buffer, "%d", product_array[id].conductivity );
-      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../mysource/measuring.c: In function 'display_measuring_text':
-../mysource/measuring.c:403:33: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
-  403 |         sprintf(char_buffer, "%d", reference_value );
-      |                                 ^
-../mysource/measuring.c:403:9: note: 'sprintf' output between 2 and 6 bytes into a destination of size 5
-  403 |         sprintf(char_buffer, "%d", reference_value );
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../mysource/measuring.c:406:33: warning: 'sprintf' may write a terminating nul past the end of the destination [-Wformat-overflow=]
-  406 |         sprintf(char_buffer, "%d", measured_value );
-      |                                 ^
-../mysource/measuring.c:406:9: note: 'sprintf' output between 2 and 6 bytes into a destination of size 5
-  406 |         sprintf(char_buffer, "%d", measured_value );
-      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:180:13: warning: unused variable 'conduct_avg' [-Wunused-variable]
-  180 |    uint16_t conduct_avg = 0;
-      |             ^~~~~~~~~~~
-../Core/Src/main.c:179:13: warning: unused variable 'conduct2' [-Wunused-variable]
-  179 |    uint16_t conduct2 = 0;
-      |             ^~~~~~~~
-../Core/Src/main.c:178:13: warning: unused variable 'conduct1' [-Wunused-variable]
-  178 |    uint16_t conduct1 = 0;
-      |             ^~~~~~~~
-../Core/Src/main.c:177:13: warning: unused variable 'conduct0' [-Wunused-variable]
-  177 |    uint16_t conduct0 = 0;
-      |             ^~~~~~~~
-../Core/Src/main.c:175:8: warning: unused variable 'char_buffer' [-Wunused-variable]
-  175 |   char char_buffer[10];
-      |        ^~~~~~~~~~~
+arm-none-eabi-gcc "../mysource/main_menu.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/main_menu.d" -MT"mysource/main_menu.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/main_menu.o"
 arm-none-eabi-gcc -o "CubeMx.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\Documents\GIT_WORKSPACE\NTFR_SW_V2\CubeMx\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CubeMx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CubeMx.elf has a LOAD segment with RWX permissions
 Finished building target: CubeMx.elf
@@ -66,17 +9,71 @@ arm-none-eabi-size  CubeMx.elf
 arm-none-eabi-objdump -h -S CubeMx.elf  > "CubeMx.list"
 arm-none-eabi-objcopy  -O ihex CubeMx.elf  "CubeMx.hex"
    text	   data	    bss	    dec	    hex	filename
-  72048	   1596	   7900	  81544	  13e88	CubeMx.elf
+  72940	   1596	   7916	  82452	  14214	CubeMx.elf
 Finished building: default.size.stdout
  
 Finished building: CubeMx.hex
  
 Finished building: CubeMx.list
  
-18:16:22 **** Incremental Build of configuration Debug for project CubeMx ****
+16:44:18 **** Incremental Build of configuration Debug for project CubeMx ****
 make -j16 all 
 arm-none-eabi-size  CubeMx.elf 
    text	   data	    bss	    dec	    hex	filename
-  72048	   1596	   7900	  81544	  13e88	CubeMx.elf
+  72940	   1596	   7916	  82452	  14214	CubeMx.elf
 Finished building: default.size.stdout
+ 
+17:00:37 **** Incremental Build of configuration Debug for project CubeMx ****
+make -j16 all 
+arm-none-eabi-gcc "../mysource/main_menu.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/main_menu.d" -MT"mysource/main_menu.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/main_menu.o"
+arm-none-eabi-gcc -o "CubeMx.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\Documents\GIT_WORKSPACE\NTFR_SW_V2\CubeMx\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CubeMx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CubeMx.elf has a LOAD segment with RWX permissions
+Finished building target: CubeMx.elf
+ 
+arm-none-eabi-size  CubeMx.elf 
+arm-none-eabi-objdump -h -S CubeMx.elf  > "CubeMx.list"
+arm-none-eabi-objcopy  -O ihex CubeMx.elf  "CubeMx.hex"
+   text	   data	    bss	    dec	    hex	filename
+  72944	   1596	   7916	  82456	  14218	CubeMx.elf
+Finished building: default.size.stdout
+ 
+Finished building: CubeMx.hex
+ 
+Finished building: CubeMx.list
+ 
+17:02:12 **** Incremental Build of configuration Debug for project CubeMx ****
+make -j16 all 
+arm-none-eabi-gcc "../mysource/main_menu.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/main_menu.d" -MT"mysource/main_menu.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/main_menu.o"
+arm-none-eabi-gcc -o "CubeMx.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\Documents\GIT_WORKSPACE\NTFR_SW_V2\CubeMx\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CubeMx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CubeMx.elf has a LOAD segment with RWX permissions
+Finished building target: CubeMx.elf
+ 
+arm-none-eabi-size  CubeMx.elf 
+arm-none-eabi-objdump -h -S CubeMx.elf  > "CubeMx.list"
+arm-none-eabi-objcopy  -O ihex CubeMx.elf  "CubeMx.hex"
+   text	   data	    bss	    dec	    hex	filename
+  72960	   1596	   7916	  82472	  14228	CubeMx.elf
+Finished building: default.size.stdout
+ 
+Finished building: CubeMx.hex
+ 
+Finished building: CubeMx.list
+ 
+17:03:14 **** Incremental Build of configuration Debug for project CubeMx ****
+make -j16 all 
+arm-none-eabi-gcc "../mysource/main_menu.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_inc" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/w25qxx" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/mysource" -I"C:/Users/user/Documents/GIT_WORKSPACE/NTFR_SW_V2/CubeMx/ST7735_src" -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"mysource/main_menu.d" -MT"mysource/main_menu.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "mysource/main_menu.o"
+arm-none-eabi-gcc -o "CubeMx.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\user\Documents\GIT_WORKSPACE\NTFR_SW_V2\CubeMx\STM32F401RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CubeMx.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.14.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: warning: CubeMx.elf has a LOAD segment with RWX permissions
+Finished building target: CubeMx.elf
+ 
+arm-none-eabi-size  CubeMx.elf 
+arm-none-eabi-objdump -h -S CubeMx.elf  > "CubeMx.list"
+arm-none-eabi-objcopy  -O ihex CubeMx.elf  "CubeMx.hex"
+   text	   data	    bss	    dec	    hex	filename
+  72940	   1596	   7916	  82452	  14214	CubeMx.elf
+Finished building: default.size.stdout
+ 
+Finished building: CubeMx.hex
+ 
+Finished building: CubeMx.list
  

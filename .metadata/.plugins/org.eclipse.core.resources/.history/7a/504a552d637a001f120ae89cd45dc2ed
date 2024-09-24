@@ -1,0 +1,14 @@
+/*
+ * main_menu_probe.c
+ *
+ *  Created on: Sep 24, 2024
+ *      Author: user
+ */
+#include "main_menu_probe.h"
+
+menu_page_flag menu_flag;
+
+void main_menu_probe_action()
+{
+
+}

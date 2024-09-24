@@ -1,0 +1,22 @@
+/*
+ * main_menu_probe.c
+ *
+ *  Created on: Sep 24, 2024
+ *      Author: user
+ */
+#include "main_menu_probe.h"
+
+menu_page_flag menu_flag;
+
+void main_menu_probe_action()
+{
+	if(!menu_flag.main_probe)
+	{
+		menu_flag.main_probe = 1;
+		ST7735_FillScreen(ST7735_BLACK);
+	}
+	SPI_Flash_to_LCD(MAIN_MENU_NO3);
+	SPI_Flash_to_LCD(9, 10344, 36, 55, 78 ,11);
+	SPI_Flash_to_LCD(9, 10344, 36, 55, 78 ,11);
+	//SPI_Flash_to_LCD(ARROW_MAIN_LIGHT_RIGHT, offset, w, h, x, y)
+}

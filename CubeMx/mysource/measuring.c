@@ -38,7 +38,7 @@ void measuring_process()
 void display_all_measuring_process_and_led(uint16_t measured_value, uint8_t id)
 {
 
-	  if(gl_led_pwm_state==LED_PWM_CCR_STABLE)
+	  if(gl_led_pwm_state == LED_PWM_CCR_STABLE)
 	  {
 		  SPI_Flash_to_LCD(LOADING_1,28,14);
 		  SPI_Flash_to_LCD(LOADING_2,80,14);
